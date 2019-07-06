@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		004D714922D09558005FA116 /* CityTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 004D714822D09558005FA116 /* CityTableViewCell.xib */; };
 		007BD3C822CBBBEF00384CE2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007BD3C722CBBBEF00384CE2 /* AppDelegate.swift */; };
 		007BD3CA22CBBBEF00384CE2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007BD3C922CBBBEF00384CE2 /* ViewController.swift */; };
 		007BD3CD22CBBBEF00384CE2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 007BD3CB22CBBBEF00384CE2 /* Main.storyboard */; };
@@ -34,6 +35,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		004D714822D09558005FA116 /* CityTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CityTableViewCell.xib; sourceTree = "<group>"; };
 		007BD3C422CBBBEF00384CE2 /* firstApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = firstApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		007BD3C722CBBBEF00384CE2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		007BD3C922CBBBEF00384CE2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -103,6 +105,7 @@
 				007BD3CE22CBBBF000384CE2 /* Assets.xcassets */,
 				007BD3D022CBBBF000384CE2 /* LaunchScreen.storyboard */,
 				007BD3D322CBBBF000384CE2 /* Info.plist */,
+				004D714822D09558005FA116 /* CityTableViewCell.xib */,
 			);
 			path = firstApp;
 			sourceTree = "<group>";
@@ -229,6 +232,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				004D714922D09558005FA116 /* CityTableViewCell.xib in Resources */,
 				007BD3D222CBBBF000384CE2 /* LaunchScreen.storyboard in Resources */,
 				007BD3CF22CBBBF000384CE2 /* Assets.xcassets in Resources */,
 				007BD3CD22CBBBEF00384CE2 /* Main.storyboard in Resources */,
