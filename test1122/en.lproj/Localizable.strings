@@ -1,0 +1,10 @@
+/* 
+  Localizable.strings
+  test1122
+
+  Created by denis.chicherin on 7/17/19.
+  Copyright © 2019 LearnAppMaking. All rights reserved.
+*/
+
+"usd" = "USD"
+"eur" = "EUR"
