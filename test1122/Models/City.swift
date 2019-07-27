@@ -8,9 +8,10 @@
 
 import Foundation
 
+
 struct City {
     var imageName: String?
     var monthName: String?
-    var bestBuyCost: String?
-    var bestSellCost: String?
+    var bestBuyCost: Double?
+    var bestSellCost: Double?
 }

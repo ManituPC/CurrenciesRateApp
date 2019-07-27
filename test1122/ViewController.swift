@@ -30,10 +30,7 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: idCell) as! BankListTableViewCell
-        cell.labelText_1.text = "text_1"
-        cell.labelText_2.text = "text_2"
-        cell.lableText_3.text = "text_3"
+        let cell = tableView.dequeueReusableCell(withIdentifier: idCell) as! BanksListTableViewCell
         return cell
     }
     

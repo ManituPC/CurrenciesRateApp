@@ -16,10 +16,11 @@ class CitysListViewController: UIViewController {
     
     var itemCityArray: [City] = {
         var city = City()
+        //FIX: displaying image + label. Now is working like: or image, or label
         //city.imageName = "cityZ"
         city.monthName = "Aug"
-        city.bestBuyCost = "Best buy \n26.16"
-        city.bestSellCost = "Brst sell \n29.16"
+        city.bestBuyCost = 26.16
+        city.bestSellCost = 29.16
         return [city]
     }()
 
@@ -46,4 +47,7 @@ extension CitysListViewController: UICollectionViewDataSource, UICollectionViewD
         }
         return UICollectionViewCell()
     }
+    
+    //TODO: func didSelecte where use segue for open BanksList.storyboard
+    
 }

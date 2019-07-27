@@ -25,8 +25,9 @@ class CitysListCollectionViewCell: UICollectionViewCell {
                 cityImage.image = UIImage(named: image)
             }
             monthAndCurrencyLabel.text = city?.monthName
-            bestBuyLabel.text = city?.bestBuyCost
-            bestSellLabel.text = city?.bestSellCost
+            //FIX: convert Optoional double to string
+            bestBuyLabel.text = "Best buy \n\(city?.bestBuyCost))"
+            bestSellLabel.text = "Best sell \n\(city?.bestSellCost))"
             
         }
     }
