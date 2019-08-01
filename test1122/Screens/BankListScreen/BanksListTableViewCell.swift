@@ -30,6 +30,7 @@ class BanksListTableViewCell: UITableViewCell {
         didSet {
             bankName.text = bank?.bankName
             bankAddress.text = bank?.bankAddress
+            //FIX: convert Optoional double to string
             bankBuy.text = "$ \(bank?.bankBuy)"
             bankSell.text = "$ \(bank?.bankSell)"
         }

@@ -14,19 +14,37 @@ class BanksListViewController: UIViewController {
 
     @IBOutlet weak var banksListTableView: UITableView!
     
+    var itemBanksArray: [Bank] = {
+        var bank = Bank()
+        bank.bankName = "PUMB"
+        bank.bankAddress = "VotTutVot, 21b"
+        bank.bankBuy = 23.1
+        bank.bankSell = 29.9
+        return [bank]
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        banksListTableView.dataSource = self
+        banksListTableView.delegate = self
+        let nibCell = UINib(nibName: banksListTableViewCellId, bundle: nil)
+        banksListTableView.register(nibCell, forCellReuseIdentifier: banksListTableViewCellId)
+    }
+}
+
+extension BanksListViewController: UITableViewDataSource, UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return itemBanksArray.count
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let itemCell = tableView.dequeueReusableCell(withIdentifier: banksListTableViewCellId, for: indexPath) as! BanksListTableViewCell
+        itemCell.bank = itemBanksArray[indexPath.row]
+        return itemCell
     }
-    */
-
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 100.0
+    }
 }
