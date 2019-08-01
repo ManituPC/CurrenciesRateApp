@@ -10,6 +10,8 @@ import UIKit
 
 class BankDetailsTableViewCell: UITableViewCell {
 
+	// TODO: add outlets
+
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -21,4 +23,13 @@ class BankDetailsTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
+    var bank: Bank? {
+        didSet {
+        	// FIX: add string from res 
+            bankCurrency.text = "USD"
+            //FIX: convert Optoional double to string
+            bankBuy.text = "$ \(bank?.bankBuy)"
+            bankSell.text = "$ \(bank?.bankSell)"
+        }
+    }
 }
