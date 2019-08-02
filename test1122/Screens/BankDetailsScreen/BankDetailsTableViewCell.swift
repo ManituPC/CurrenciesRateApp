@@ -10,6 +10,9 @@ import UIKit
 
 class BankDetailTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var currencyLabel: UILabel!
+    @IBOutlet weak var buySellLabel: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

@@ -8,6 +8,8 @@
 
 import UIKit
 
+var rowIndex = 0
+
 class BanksListViewController: UIViewController {
     
     let banksListTableViewCellId = "BanksListTableViewCell"
@@ -20,6 +22,7 @@ class BanksListViewController: UIViewController {
         bank.bankAddress = "VotTutVot, 21b"
         bank.bankBuy = 23.1
         bank.bankSell = 29.9
+        bank.bankCurrency = [("USD", 23.2),("EUR", 30.0)]
         return [bank]
     }()
     
@@ -29,6 +32,11 @@ class BanksListViewController: UIViewController {
         banksListTableView.delegate = self
         let nibCell = UINib(nibName: banksListTableViewCellId, bundle: nil)
         banksListTableView.register(nibCell, forCellReuseIdentifier: banksListTableViewCellId)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let destinationVC: BankDetailsTableViewController = segue.destination as! BankDetailsTableViewController
+        destinationVC.bank = itemBanksArray[rowIndex]
     }
 }
 
@@ -47,4 +55,9 @@ extension BanksListViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 100.0
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        rowIndex = indexPath.row
+    }
+    
 }

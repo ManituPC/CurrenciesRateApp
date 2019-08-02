@@ -40,6 +40,10 @@
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="buySellLabel" destination="PBi-2B-BhA" id="7LZ-hL-ldI"/>
+                <outlet property="currencyLabel" destination="lLG-L0-Dga" id="nhC-ii-h3d"/>
+            </connections>
             <point key="canvasLocation" x="-232.60869565217394" y="126.5625"/>
         </tableViewCell>
     </objects>
