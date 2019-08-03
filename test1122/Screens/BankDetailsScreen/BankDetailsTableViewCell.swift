@@ -8,7 +8,7 @@
 
 import UIKit
 
-class BankDetailTableViewCell: UITableViewCell {
+class BankDetailsTableViewCell: UITableViewCell {
 
     @IBOutlet weak var currencyLabel: UILabel!
     @IBOutlet weak var buySellLabel: UILabel!
@@ -24,4 +24,11 @@ class BankDetailTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
+    var bankDetails: Bank? {
+        didSet {
+            currencyLabel.text = bankDetails?.bankCurrency![rowIndex].0
+            //FIX: convert Optoional double to string
+            buySellLabel.text = "\(bankDetails?.bankCurrency![rowIndex].1)"
+        }
+    }
 }

@@ -61,6 +61,4 @@ extension CitysListViewController: UICollectionViewDataSource, UICollectionViewD
         let viewController = storyboard?.instantiateViewController(withIdentifier: name)
         self.navigationController?.pushViewController(viewController!, animated: true)
     }
-    
-    
 }

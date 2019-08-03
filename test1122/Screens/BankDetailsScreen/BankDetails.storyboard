@@ -10,10 +10,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Bank Details Table View Controller-->
+        <!--Bank Details View Controller-->
         <scene sceneID="SIM-fH-d61">
             <objects>
-                <viewController id="GhG-iA-cBS" customClass="BankDetailsTableViewController" customModule="test1122" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="BankDetailsViewController" id="GhG-iA-cBS" customClass="BankDetailsViewController" customModule="test1122" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="kUs-3x-DEv">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -33,12 +33,12 @@
                         <viewLayoutGuide key="safeArea" id="jgg-8q-soV"/>
                     </view>
                     <connections>
-                        <outlet property="bankDetailsTableView" destination="oPq-xe-h6L" id="23l-T2-vk3"/>
+                        <outlet property="bankDetailsTVC" destination="oPq-xe-h6L" id="REW-ug-5XW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lkU-Jz-Qur" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-830" y="-3"/>
+            <point key="canvasLocation" x="-1393" y="-25"/>
         </scene>
     </scenes>
 </document>

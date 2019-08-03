@@ -10,6 +10,7 @@ import UIKit
 
 var rowIndex = 0
 
+
 class BanksListViewController: UIViewController {
     
     let banksListTableViewCellId = "BanksListTableViewCell"
@@ -35,7 +36,7 @@ class BanksListViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let destinationVC: BankDetailsTableViewController = segue.destination as! BankDetailsTableViewController
+        let destinationVC: BankDetailsViewController = segue.destination as! BankDetailsViewController
         destinationVC.bank = itemBanksArray[rowIndex]
     }
 }
@@ -58,6 +59,8 @@ extension BanksListViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         rowIndex = indexPath.row
+        let name = "BankDetailsViewController"
+        let viewController = storyboard?.instantiateViewController(withIdentifier: name)
+        self.navigationController?.pushViewController(viewController!, animated: true)
     }
-    
 }
