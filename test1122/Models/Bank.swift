@@ -14,5 +14,5 @@ struct Bank {
     var bankAddress: String?
     var bankBuy: Double?
     var bankSell: Double?
-    var bankCurrency: [(String, Double)]?
+    var bankCurrency: [(currency: String, cost: Double)]?
 }

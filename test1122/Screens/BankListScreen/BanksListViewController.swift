@@ -10,14 +10,14 @@ import UIKit
 
 var rowIndex = 0
 
-
 class BanksListViewController: UIViewController {
     
     let banksListTableViewCellId = "BanksListTableViewCell"
-
+    var bankController: BankController!
+    
     @IBOutlet weak var banksListTableView: UITableView!
     
-    var itemBanksArray: [Bank] = {
+    let itemBanksArray: [Bank] = {
         var bank = Bank()
         bank.bankName = "PUMB"
         bank.bankAddress = "VotTutVot, 21b"
@@ -29,6 +29,7 @@ class BanksListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //let bank1 = bankController.bank
         banksListTableView.dataSource = self
         banksListTableView.delegate = self
         let nibCell = UINib(nibName: banksListTableViewCellId, bundle: nil)
@@ -36,8 +37,9 @@ class BanksListViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let destinationVC: BankDetailsViewController = segue.destination as! BankDetailsViewController
-        destinationVC.bank = itemBanksArray[rowIndex]
+        if let destinationVC: BankDetailsViewController = segue.destination as? BankDetailsViewController {
+            destinationVC.bankController = bankController
+        }
     }
 }
 
