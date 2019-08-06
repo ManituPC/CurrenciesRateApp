@@ -13,7 +13,7 @@ class BankDetailsViewController: UIViewController {
     @IBOutlet weak var bankDetailsTVC: UITableView!
     
     let bankDetailsTableViewCellId = "BankDetailsTableViewCell"
-    var bankController: BankController!
+//    var bankController: BankController!
     let itemBanksArray: [Bank] = {
         var bank = Bank()
         bank.bankName = "PUMB"

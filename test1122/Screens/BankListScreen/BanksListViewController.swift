@@ -13,7 +13,7 @@ var rowIndex = 0
 class BanksListViewController: UIViewController {
     
     let banksListTableViewCellId = "BanksListTableViewCell"
-    var bankController: BankController!
+//    var bankController: BankController!
     
     @IBOutlet weak var banksListTableView: UITableView!
     
@@ -36,11 +36,11 @@ class BanksListViewController: UIViewController {
         banksListTableView.register(nibCell, forCellReuseIdentifier: banksListTableViewCellId)
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let destinationVC: BankDetailsViewController = segue.destination as? BankDetailsViewController {
-            destinationVC.bankController = bankController
-        }
-    }
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        if let destinationVC: BankDetailsViewController = segue.destination as? BankDetailsViewController {
+//            destinationVC.bankController = bankController
+//        }
+//    }
 }
 
 extension BanksListViewController: UITableViewDataSource, UITableViewDelegate {
