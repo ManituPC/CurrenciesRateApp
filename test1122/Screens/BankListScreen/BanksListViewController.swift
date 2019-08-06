@@ -30,8 +30,16 @@ class BanksListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         //let bank1 = bankController.bank
+        
         banksListTableView.dataSource = self
         banksListTableView.delegate = self
+        
+        // NavBar settings
+        //TODO: add name from selected cell
+        self.navigationItem.title = "City name"
+        self.navigationItem.leftBarButtonItem?.title = "Change currency"
+        
+        // create cell in tableView
         let nibCell = UINib(nibName: banksListTableViewCellId, bundle: nil)
         banksListTableView.register(nibCell, forCellReuseIdentifier: banksListTableViewCellId)
     }

@@ -33,9 +33,17 @@ class CitysListViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // TODO: need more details about this
         citysListCollectionsView.dataSource = self
         citysListCollectionsView.delegate = self
         
+        // NavBar settings
+        self.navigationItem.title = "Cities"
+        //TODO: init button
+        self.navigationItem.leftBarButtonItem?.title = "Change currency"
+        
+        // create cell in collectionView
         let nibCell = UINib(nibName: citysCollectionViewCellId, bundle: nil)
         citysListCollectionsView.register(nibCell, forCellWithReuseIdentifier: citysCollectionViewCellId)
     }
