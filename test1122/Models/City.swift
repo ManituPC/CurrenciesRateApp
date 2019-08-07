@@ -10,6 +10,7 @@ import Foundation
 
 
 struct City {
+    var cityName: String?
     var imageName: String?
     var monthName: String?
     var bestBuyCost: Double?

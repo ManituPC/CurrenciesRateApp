@@ -17,14 +17,16 @@ class CitysListViewController: UIViewController {
     var itemCityArray: [City] = {
         var city1 = City()
         //FIX: displaying image + label. Now is working like: or image, or label
-        //city.imageName = "cityZ"
+        city1.imageName = "cityZ"
+        city1.cityName = "ZPcity"
         city1.monthName = "Aug"
         city1.bestBuyCost = 26.16
         city1.bestSellCost = 29.16
         
         var city2 = City()
         //FIX: displaying image + label. Now is working like: or image, or label
-        //city.imageName = "cityZ"
+        city2.imageName = "cityZ"
+        city2.cityName = "Dnepr"
         city2.monthName = "Sep"
         city2.bestBuyCost = 26.18
         city2.bestSellCost = 29.20
@@ -54,7 +56,7 @@ class CitysListViewController: UIViewController {
     }
 }
 
-extension CitysListViewController: UICollectionViewDataSource, UICollectionViewDelegate {
+extension CitysListViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return itemCityArray.count
@@ -63,9 +65,18 @@ extension CitysListViewController: UICollectionViewDataSource, UICollectionViewD
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if let itemCell = citysListCollectionsView.dequeueReusableCell(withReuseIdentifier: citysCollectionViewCellId, for: indexPath) as? CitysListCollectionViewCell {
             itemCell.city = itemCityArray[indexPath.row]
+            
+            //
+//            let screenSize: CGRect = UIScreen.main.bounds
+//            itemCell.frame = CGRectMake(itemCell.frame.origin.x, itemCell.frame.origin.y, itemCell.frame.size.width, itemCityArray[indexPath.row])
             return itemCell
         }
         return UICollectionViewCell()
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let screenSize: CGRect = UIScreen.main.bounds
+        return CGSize(width: screenSize.width / 3, height: 202.0 )
     }
     
     //TODO: func didSelecte where use segue for open BanksList.storyboard

@@ -10,6 +10,7 @@ import UIKit
 
 class CitysListCollectionViewCell: UICollectionViewCell {
 
+    @IBOutlet weak var cityNameLabel: UILabel!
     @IBOutlet weak var cityImage: UIImageView!
     @IBOutlet weak var monthAndCurrencyLabel: UILabel!
     @IBOutlet weak var bestBuyLabel: UILabel!
@@ -24,6 +25,7 @@ class CitysListCollectionViewCell: UICollectionViewCell {
             if let image = city?.imageName {
                 cityImage.image = UIImage(named: image)
             }
+            cityNameLabel.text = city?.cityName
             monthAndCurrencyLabel.text = city?.monthName
             //FIX: convert Optoional double to string
             bestBuyLabel.text = "Best buy \n\(city?.bestBuyCost))"
