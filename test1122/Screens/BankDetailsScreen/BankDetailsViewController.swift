@@ -16,6 +16,7 @@ class BankDetailsViewController: UIViewController {
 //    var bankController: BankController!
     let itemBanksArray: [Bank] = {
         var bank = Bank()
+        bank.bankCity = "ZPcity"
         bank.bankName = "PUMB"
         bank.bankAddress = "VotTutVot, 21b"
         bank.bankBuy = 23.1
@@ -31,6 +32,10 @@ class BankDetailsViewController: UIViewController {
         bankDetailsTVC.delegate = self
         let nibCell = UINib(nibName: bankDetailsTableViewCellId, bundle: nil)
         bankDetailsTVC.register(nibCell, forCellReuseIdentifier: bankDetailsTableViewCellId)
+        
+        // navbar settings
+        self.navigationItem.title = itemBanksArray[0].bankName
+        self.navigationItem.leftBarButtonItem?.title = itemBanksArray[0].bankCity
         
         print("!!!!!!!!!!!!! \(itemBanksArray[0].bankCurrency![0].0) and \(itemBanksArray[0].bankCurrency![0].1)")
     }

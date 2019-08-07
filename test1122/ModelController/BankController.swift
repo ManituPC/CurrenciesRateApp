@@ -11,6 +11,7 @@ import Foundation
 
 class BankController {
     var bank = Bank(
+        bankCity: "ZPcity",
         bankName: "PUMB",
         bankAddress: "VotTutVot, 21b",
         bankBuy: 23.1,

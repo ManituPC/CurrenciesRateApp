@@ -10,6 +10,7 @@ import Foundation
 
 
 struct Bank {
+    var bankCity: String?
     var bankName: String?
     var bankAddress: String?
     var bankBuy: Double?

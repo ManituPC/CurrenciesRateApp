@@ -19,6 +19,7 @@ class BanksListViewController: UIViewController {
     
     let itemBanksArray: [Bank] = {
         var bank = Bank()
+        bank.bankCity = "ZPcity"
         bank.bankName = "PUMB"
         bank.bankAddress = "VotTutVot, 21b"
         bank.bankBuy = 23.1
@@ -36,12 +37,18 @@ class BanksListViewController: UIViewController {
         
         // NavBar settings
         //TODO: add name from selected cell
-        self.navigationItem.title = "City name"
-        self.navigationItem.leftBarButtonItem?.title = "Change currency"
+        self.navigationItem.title = itemBanksArray[0].bankCity
+        self.navigationItem.leftBarButtonItem?.title = "Cities"
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Sort by", style: .plain, target: self, action: #selector(addTapped))
         
         // create cell in tableView
         let nibCell = UINib(nibName: banksListTableViewCellId, bundle: nil)
         banksListTableView.register(nibCell, forCellReuseIdentifier: banksListTableViewCellId)
+    }
+    
+    //for test
+    @objc func addTapped() {
+        print("!!!!!!!!!!!!! best buy / best sell !!!!!!!!!!!!!")
     }
     
 //    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

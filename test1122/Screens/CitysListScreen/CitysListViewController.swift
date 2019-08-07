@@ -39,13 +39,18 @@ class CitysListViewController: UIViewController {
         citysListCollectionsView.delegate = self
         
         // NavBar settings
+        // TODO: move to separate controller ???
         self.navigationItem.title = "Cities"
-        //TODO: init button
-        self.navigationItem.leftBarButtonItem?.title = "Change currency"
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Change currency", style: .plain, target: self, action: #selector(addTapped))
         
         // create cell in collectionView
         let nibCell = UINib(nibName: citysCollectionViewCellId, bundle: nil)
         citysListCollectionsView.register(nibCell, forCellWithReuseIdentifier: citysCollectionViewCellId)
+    }
+    
+    //for test
+    @objc func addTapped() {
+        print("!!!!!!!!!!!!! click !!!!!!!!!!!!!")
     }
 }
 
