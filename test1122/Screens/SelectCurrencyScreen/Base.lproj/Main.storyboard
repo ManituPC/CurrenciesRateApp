@@ -24,12 +24,16 @@
                                     <color key="titleShadowColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
+                                    <action selector="onClickUSD:" destination="kGG-uB-M99" eventType="touchUpInside" id="1d4-lF-VdL"/>
                                     <segue destination="XA8-xq-X9b" kind="show" id="e5H-xz-gZU"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AVS-M9-MRH" customClass="CustomButton" customModule="test1122" customModuleProvider="target">
                                 <rect key="frame" x="107" y="498" width="200" height="30"/>
                                 <state key="normal" title="EUR"/>
+                                <connections>
+                                    <action selector="onClickEUR:" destination="kGG-uB-M99" eventType="touchUpInside" id="S25-uC-QX7"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

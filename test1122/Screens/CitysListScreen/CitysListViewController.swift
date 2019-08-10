@@ -11,6 +11,7 @@ import UIKit
 class CitysListViewController: UIViewController {
     
     let citysCollectionViewCellId: String = "CitysListCollectionViewCell"
+    var userSettingsController: UserSettingsController!
     
     @IBOutlet weak var citysListCollectionsView: UICollectionView!
     
@@ -30,6 +31,7 @@ class CitysListViewController: UIViewController {
         city2.monthName = "Sep"
         city2.bestBuyCost = 26.18
         city2.bestSellCost = 29.20
+        
         return [city1, city2]
     }()
 
@@ -39,6 +41,8 @@ class CitysListViewController: UIViewController {
         // TODO: need more details about this
         citysListCollectionsView.dataSource = self
         citysListCollectionsView.delegate = self
+        
+       // print("!!!!!!!!!!!!!!! \(userSettingsController.selectedCurrency) !!!!!!!!!!!!")
         
         // NavBar settings
         // TODO: move to separate controller ???
@@ -65,18 +69,21 @@ extension CitysListViewController: UICollectionViewDataSource, UICollectionViewD
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if let itemCell = citysListCollectionsView.dequeueReusableCell(withReuseIdentifier: citysCollectionViewCellId, for: indexPath) as? CitysListCollectionViewCell {
             itemCell.city = itemCityArray[indexPath.row]
-            
-            //
-//            let screenSize: CGRect = UIScreen.main.bounds
-//            itemCell.frame = CGRectMake(itemCell.frame.origin.x, itemCell.frame.origin.y, itemCell.frame.size.width, itemCityArray[indexPath.row])
             return itemCell
         }
         return UICollectionViewCell()
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let screenSize: CGRect = UIScreen.main.bounds
-        return CGSize(width: screenSize.width / 3, height: 202.0 )
+        let cellWidth = collectionView.bounds.size.width / 2 - 4
+        let columns = collectionView.bounds.size.width / cellWidth
+        let width = (collectionView.bounds.size.width - ((columns - 1) * 4)) / columns
+        
+        return CGSize(width: width, height: 202)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return 4
     }
     
     //TODO: func didSelecte where use segue for open BanksList.storyboard
