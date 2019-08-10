@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="BanksListTableViewCell" rowHeight="71" id="KGk-i7-Jjw" customClass="BanksListTableViewCell" customModule="test1122" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="282" height="71"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="248" height="70.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7KF-sB-0kn">
+                        <rect key="frame" x="8" y="8" width="42" height="25.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="afR-Hx-2UH">
+                        <rect key="frame" x="198" y="8" width="42" height="25.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="252" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lqn-Ok-wnE">
+                        <rect key="frame" x="198" y="41.5" width="42" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="252" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wIb-1d-L7Q">
+                        <rect key="frame" x="8" y="41.5" width="42" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="wIb-1d-L7Q" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="0ga-WA-2YC"/>
+                    <constraint firstAttribute="bottom" secondItem="wIb-1d-L7Q" secondAttribute="bottom" constant="8" id="6Z1-H9-Qp1"/>
+                    <constraint firstAttribute="trailing" secondItem="lqn-Ok-wnE" secondAttribute="trailing" constant="8" id="GS1-Ft-olk"/>
+                    <constraint firstItem="wIb-1d-L7Q" firstAttribute="top" secondItem="7KF-sB-0kn" secondAttribute="bottom" constant="8" id="Hj1-zj-pGc"/>
+                    <constraint firstItem="7KF-sB-0kn" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="K2G-BW-DSy"/>
+                    <constraint firstAttribute="trailing" secondItem="afR-Hx-2UH" secondAttribute="trailing" constant="8" id="Mwp-av-8xW"/>
+                    <constraint firstItem="7KF-sB-0kn" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="dY7-6y-kns"/>
+                    <constraint firstAttribute="bottom" secondItem="lqn-Ok-wnE" secondAttribute="bottom" constant="8" id="fIF-pE-A5G"/>
+                    <constraint firstItem="afR-Hx-2UH" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="fSv-pf-kUR"/>
+                    <constraint firstItem="lqn-Ok-wnE" firstAttribute="top" secondItem="afR-Hx-2UH" secondAttribute="bottom" constant="8" id="k7c-a8-o19"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="bankAddress" destination="wIb-1d-L7Q" id="HbT-cX-BlJ"/>
+                <outlet property="bankBuy" destination="afR-Hx-2UH" id="N2m-Gf-Nma"/>
+                <outlet property="bankName" destination="7KF-sB-0kn" id="5tC-cj-fZx"/>
+                <outlet property="bankSell" destination="lqn-Ok-wnE" id="b8S-PI-Tgq"/>
+            </connections>
+            <point key="canvasLocation" x="139" y="63"/>
+        </tableViewCell>
+    </objects>
+</document>
