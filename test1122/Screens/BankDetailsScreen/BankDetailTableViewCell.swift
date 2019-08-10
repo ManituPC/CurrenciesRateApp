@@ -8,7 +8,9 @@
 
 import UIKit
 
-class BankDetailTableViewCell: UITableViewCell {
+class BankDetailsTableViewCell: UITableViewCell {
+
+	// TODO: add outlets
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -21,4 +23,13 @@ class BankDetailTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
+    var bank: Bank? {
+        didSet {
+        	// FIX: add string from res 
+            bankCurrency.text = "USD"
+            //FIX: convert Optoional double to string
+            bankBuy.text = "$ \(bank?.bankBuy)"
+            bankSell.text = "$ \(bank?.bankSell)"
+        }
+    }
 }

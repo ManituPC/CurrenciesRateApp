@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="aW7-zT-ZZl">
+            <objects>
+                <navigationController id="tZR-Kc-Wab" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="0WW-lf-KWl">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="YuO-8a-ZEy" kind="relationship" relationship="rootViewController" id="5gJ-bN-o3U"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Mi8-su-qS4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-733" y="-58"/>
+        </scene>
+        <!--Citys List View Controller-->
+        <scene sceneID="k8E-mu-vMj">
+            <objects>
+                <viewController storyboardIdentifier="CitysList" id="YuO-8a-ZEy" customClass="CitysListViewController" customModule="test1122" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="dgC-Te-Vuo">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" restorationIdentifier="citysListCollection" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="e0R-EJ-rJD">
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="ok5-SV-7V5">
+                                    <size key="itemSize" width="131" height="114"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="" id="npS-SJ-Ysg">
+                                        <rect key="frame" x="0.0" y="0.0" width="131" height="114"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="131" height="114"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </view>
+                                        <connections>
+                                            <segue destination="HVS-9y-wLk" kind="show" id="Aaw-O2-jda"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="e0R-EJ-rJD" firstAttribute="top" secondItem="mtK-Wu-K1g" secondAttribute="top" id="Ine-q2-g5O"/>
+                            <constraint firstItem="mtK-Wu-K1g" firstAttribute="bottom" secondItem="e0R-EJ-rJD" secondAttribute="bottom" id="LpA-kf-Lp3"/>
+                            <constraint firstItem="mtK-Wu-K1g" firstAttribute="trailing" secondItem="e0R-EJ-rJD" secondAttribute="trailing" id="YlX-gR-k3c"/>
+                            <constraint firstItem="e0R-EJ-rJD" firstAttribute="leading" secondItem="mtK-Wu-K1g" secondAttribute="leading" id="eEa-c2-7rU"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="mtK-Wu-K1g"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="E4X-wR-rkh"/>
+                    <connections>
+                        <outlet property="citysListCollectionsView" destination="e0R-EJ-rJD" id="xOu-C8-Xzh"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Vzb-Yf-WZY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="146.37681159420291" y="-58.258928571428569"/>
+        </scene>
+        <!--BanksListViewController-->
+        <scene sceneID="UAa-y1-ngQ">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="BanksListViewController" storyboardName="BanksList" referencedIdentifier="BanksListViewController" id="HVS-9y-wLk" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Pdn-6M-LxX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="878" y="-147"/>
+        </scene>
+    </scenes>
+</document>
