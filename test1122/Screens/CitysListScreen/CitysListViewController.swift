@@ -11,7 +11,6 @@ import UIKit
 class CitysListViewController: UIViewController {
     
     let citysCollectionViewCellId: String = "CitysListCollectionViewCell"
-    var userSettingsController: UserSettingsController!
     
     @IBOutlet weak var citysListCollectionsView: UICollectionView!
     
@@ -42,8 +41,6 @@ class CitysListViewController: UIViewController {
         citysListCollectionsView.dataSource = self
         citysListCollectionsView.delegate = self
         
-       // print("!!!!!!!!!!!!!!! \(userSettingsController.selectedCurrency) !!!!!!!!!!!!")
-        
         // NavBar settings
         // TODO: move to separate controller ???
         self.navigationItem.title = "Cities"
@@ -57,6 +54,10 @@ class CitysListViewController: UIViewController {
     //for test
     @objc func addTapped() {
         print("!!!!!!!!!!!!! click !!!!!!!!!!!!!")
+        
+        let name = "NavBar"
+        let viewController = storyboard?.instantiateViewController(withIdentifier: name)
+        self.navigationController?.pushViewController(viewController!, animated: true)
     }
 }
 

@@ -9,6 +9,6 @@
 import Foundation
 
 
-struct UserSettings {
+class UserSettings {
     var selectedCurrency: String?
 }

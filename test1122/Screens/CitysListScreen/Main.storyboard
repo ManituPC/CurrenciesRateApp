@@ -84,5 +84,13 @@
             </objects>
             <point key="canvasLocation" x="878" y="-147"/>
         </scene>
+        <!--SelectCurrency-->
+        <scene sceneID="gLg-QZ-jQA">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="NavBar" storyboardName="SelectCurrency" referencedIdentifier="SelectCurrency" id="nat-Wg-CYS" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="teB-xB-Orw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="878" y="-232"/>
+        </scene>
     </scenes>
 </document>
