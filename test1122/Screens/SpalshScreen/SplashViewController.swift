@@ -1,7 +1,10 @@
 
+import UIKit
+
+
 class SplashViewController: UIViewController {
 
-	private let activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: .whiteLarge)
+    private let activityIndicator = UIActivityIndicatorView(style: .whiteLarge)
 
    	override func viewDidLoad() {
       	super.viewDidLoad()
@@ -14,19 +17,16 @@ class SplashViewController: UIViewController {
 
    	private func makeServiceCall() {
    		activityIndicator.startAnimating()
-   		DispatchQueue.main.asyncAfter(dedline: DispatchTime.now() + .seconds(3)) {
-   			self.activityIndicator.stopAnimation()
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + .seconds(3)) {
+            self.activityIndicator.stopAnimating()
 
    			// check first launch
    			let defaults = UserDefaults.standard
         	if defaults.object(forKey: "isFirstTime") == nil {
             	defaults.set("No", forKey:"isFirstTime")
-            	let storyboard = UIStoryboard(name: "SelectCurrency", bundle: nil)
-            	let viewController = storyboard.instantiateViewController(withIdentifier: "NavBar")
-            	self.window?.rootViewController = viewController
-            	self.window?.makeKeyAndVisible()
+                AppDelegate.shared.rootViewController.showCurrencyScreen()
         	} else {
-        		// do something crazy
+                AppDelegate.shared.rootViewController.switchToCitysListScreen()
         	}
    		}
    	}

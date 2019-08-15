@@ -17,6 +17,8 @@
 		0047088C22EC47D900DBDC5F /* BanksList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0047088B22EC47D900DBDC5F /* BanksList.storyboard */; };
 		0047088E22EC481400DBDC5F /* BanksListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0047088D22EC481400DBDC5F /* BanksListViewController.swift */; };
 		0047089022EC4BAF00DBDC5F /* Bank.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0047088F22EC4BAF00DBDC5F /* Bank.swift */; };
+		00669C1A230534690037D55C /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00669C19230534690037D55C /* RootViewController.swift */; };
+		00669C1D230534AC0037D55C /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00669C1C230534AC0037D55C /* SplashViewController.swift */; };
 		007111B622DF6C850030317B /* SelectCurrencyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007111B522DF6C850030317B /* SelectCurrencyViewController.swift */; };
 		007111BE22DF71DD0030317B /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007111BD22DF71DD0030317B /* CustomButton.swift */; };
 		007111C122DF733F0030317B /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007111C022DF733F0030317B /* Constants.swift */; };
@@ -45,6 +47,8 @@
 		0047088B22EC47D900DBDC5F /* BanksList.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = BanksList.storyboard; sourceTree = "<group>"; };
 		0047088D22EC481400DBDC5F /* BanksListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BanksListViewController.swift; sourceTree = "<group>"; };
 		0047088F22EC4BAF00DBDC5F /* Bank.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bank.swift; sourceTree = "<group>"; };
+		00669C19230534690037D55C /* RootViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
+		00669C1C230534AC0037D55C /* SplashViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		007111B522DF6C850030317B /* SelectCurrencyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectCurrencyViewController.swift; sourceTree = "<group>"; };
 		007111BD22DF71DD0030317B /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		007111C022DF733F0030317B /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -78,6 +82,7 @@
 		0029B78A22E8784D004D2CE8 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				00669C1B230534AC0037D55C /* SpalshScreen */,
 				0029B79022E87947004D2CE8 /* SelectCurrencyScreen */,
 				0029B78E22E878AA004D2CE8 /* CitysListScreen */,
 				0029B78B22E87868004D2CE8 /* BankListScreen */,
@@ -122,6 +127,7 @@
 		0029B78F22E87908004D2CE8 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				00669C18230534690037D55C /* BaseModels */,
 				0047088922E8B81000DBDC5F /* City.swift */,
 				0047088F22EC4BAF00DBDC5F /* Bank.swift */,
 				004700DD22FB1F6C00645183 /* UserSettings.swift */,
@@ -136,6 +142,22 @@
 				007111B522DF6C850030317B /* SelectCurrencyViewController.swift */,
 			);
 			path = SelectCurrencyScreen;
+			sourceTree = "<group>";
+		};
+		00669C18230534690037D55C /* BaseModels */ = {
+			isa = PBXGroup;
+			children = (
+				00669C19230534690037D55C /* RootViewController.swift */,
+			);
+			path = BaseModels;
+			sourceTree = "<group>";
+		};
+		00669C1B230534AC0037D55C /* SpalshScreen */ = {
+			isa = PBXGroup;
+			children = (
+				00669C1C230534AC0037D55C /* SplashViewController.swift */,
+			);
+			path = SpalshScreen;
 			sourceTree = "<group>";
 		};
 		007111BC22DF71A00030317B /* SubClasses */ = {
@@ -277,9 +299,11 @@
 				007111B622DF6C850030317B /* SelectCurrencyViewController.swift in Sources */,
 				0047088E22EC481400DBDC5F /* BanksListViewController.swift in Sources */,
 				00C938B522D6296C00E7D7EB /* BanksListTableViewCell.swift in Sources */,
+				00669C1D230534AC0037D55C /* SplashViewController.swift in Sources */,
 				0091359522F584A900EA10F3 /* BankDetailsViewController.swift in Sources */,
 				007111BE22DF71DD0030317B /* CustomButton.swift in Sources */,
 				007111C122DF733F0030317B /* Constants.swift in Sources */,
+				00669C1A230534690037D55C /* RootViewController.swift in Sources */,
 				004700E022FB216900645183 /* UserSettingsController.swift in Sources */,
 				009CF8DF22D9D074006BBA91 /* BankDetailsTableViewCell.swift in Sources */,
 				0047088A22E8B81000DBDC5F /* City.swift in Sources */,
