@@ -25,7 +25,6 @@
                                 </state>
                                 <connections>
                                     <action selector="onClickUSD:" destination="kGG-uB-M99" eventType="touchUpInside" id="1d4-lF-VdL"/>
-                                    <segue destination="XA8-xq-X9b" kind="show" id="e5H-xz-gZU"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AVS-M9-MRH" customClass="CustomButton" customModule="test1122" customModuleProvider="target">
