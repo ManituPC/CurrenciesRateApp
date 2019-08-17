@@ -44,22 +44,21 @@ class SelectCurrencyViewController: UIViewController {
     }
     
     func showScreen() {
+        
+        let name = "CitysList"
         let viewC = self.navigationController?.viewControllers
         
         for view in viewC! {
             print(view)
         }
         
-        for index in viewC! {
-            switch index {
-            case is CitysListViewController:
-                print("popTo")
-                self.navigationController?.popToViewController((viewC?[0])!, animated: true)
-            default:
-                print("push")
-                let viewController = storyboard?.instantiateViewController(withIdentifier: "CitysList")
-                self.navigationController?.pushViewController(viewController!, animated: true)
-            }
+        if let destinationVC = viewC?[0] as? CitysListViewController  {
+            print("popTo")
+            self.navigationController?.popToViewController(destinationVC, animated: true)
+        } else {
+            print("push")
+            let viewController = storyboard?.instantiateViewController(withIdentifier: name)
+            self.navigationController?.pushViewController(viewController!, animated: true)
         }
     }
 }

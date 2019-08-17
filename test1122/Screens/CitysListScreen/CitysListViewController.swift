@@ -62,8 +62,6 @@ class CitysListViewController: UIViewController {
         print("!!!!!!!!!!!!! click !!!!!!!!!!!!!")
         
         let name = "NavBar"
-        //let viewController = storyboard?.instantiateViewController(withIdentifier: name)
-        //if let destinationViewController
         
         //debug
         let viewC = self.navigationController?.viewControllers
@@ -71,25 +69,14 @@ class CitysListViewController: UIViewController {
             print(view)
         }
         
-        // FIX: дублирования из-за for
-        for index in viewC! {
-            switch index {
-            case is SelectCurrencyViewController:
-                print("popTo")
-                self.navigationController?.popToViewController((viewC?[0])!, animated: true)
-            default:
-                print("push")
-                let viewController = storyboard?.instantiateViewController(withIdentifier: name)
-                self.navigationController?.pushViewController(viewController!, animated: true)
-            }
-            if let destinationVC = index as? SelectCurrencyViewController {
-                self.navigationController?.popToViewController(destinationVC, animated: true)
-                print("popTo")
-            } else {
-                let viewController = storyboard?.instantiateViewController(withIdentifier: name)
-                self.navigationController?.pushViewController(viewController!, animated: true)
-                print("push")
-            }
+        
+        if let destinationVC = viewC?[0] as? SelectCurrencyViewController  {
+            print("popTo")
+            self.navigationController?.popToViewController(destinationVC, animated: true)
+        } else {
+            print("push")
+            let viewController = storyboard?.instantiateViewController(withIdentifier: name)
+            self.navigationController?.pushViewController(viewController!, animated: true)
         }
     }
 }
