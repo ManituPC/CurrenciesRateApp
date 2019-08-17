@@ -32,6 +32,7 @@
 		00C938AC22D6128700E7D7EB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 00C938AA22D6128700E7D7EB /* LaunchScreen.storyboard */; };
 		00C938B522D6296C00E7D7EB /* BanksListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00C938B322D6296C00E7D7EB /* BanksListTableViewCell.swift */; };
 		00C938B622D6296C00E7D7EB /* BanksListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 00C938B422D6296C00E7D7EB /* BanksListTableViewCell.xib */; };
+		00E1AEA62307F1A400EE0C12 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E1AEA52307F1A400EE0C12 /* BaseViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -62,6 +63,7 @@
 		00C938AD22D6128800E7D7EB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00C938B322D6296C00E7D7EB /* BanksListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BanksListTableViewCell.swift; sourceTree = "<group>"; };
 		00C938B422D6296C00E7D7EB /* BanksListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BanksListTableViewCell.xib; sourceTree = "<group>"; };
+		00E1AEA52307F1A400EE0C12 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -186,6 +188,7 @@
 				007111BF22DF72BF0030317B /* Resources */,
 				0029B78F22E87908004D2CE8 /* Models */,
 				0091359622F8844700EA10F3 /* ModelController */,
+				00E1AEA42307F17700EE0C12 /* BaseController */,
 				007111BC22DF71A00030317B /* SubClasses */,
 				0029B78A22E8784D004D2CE8 /* Screens */,
 				00C938A122D6128500E7D7EB /* AppDelegate.swift */,
@@ -194,6 +197,14 @@
 				00C938AD22D6128800E7D7EB /* Info.plist */,
 			);
 			path = test1122;
+			sourceTree = "<group>";
+		};
+		00E1AEA42307F17700EE0C12 /* BaseController */ = {
+			isa = PBXGroup;
+			children = (
+				00E1AEA52307F1A400EE0C12 /* BaseViewController.swift */,
+			);
+			path = BaseController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -287,6 +298,7 @@
 				00279E5A22E8AFB300576F01 /* CitysListCollectionViewCell.swift in Sources */,
 				0047089022EC4BAF00DBDC5F /* Bank.swift in Sources */,
 				004700DE22FB1F6C00645183 /* UserSettings.swift in Sources */,
+				00E1AEA62307F1A400EE0C12 /* BaseViewController.swift in Sources */,
 				00279E5D22E8B04800576F01 /* CitysListViewController.swift in Sources */,
 				00C938A222D6128500E7D7EB /* AppDelegate.swift in Sources */,
 			);
