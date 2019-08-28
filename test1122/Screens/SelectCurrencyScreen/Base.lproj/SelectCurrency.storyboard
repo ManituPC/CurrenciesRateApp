@@ -59,7 +59,7 @@
         <!--Main-->
         <scene sceneID="lS6-d8-0Ja">
             <objects>
-                <viewControllerPlaceholder storyboardIdentifier="CitysList" storyboardName="Main" referencedIdentifier="Main" id="XA8-xq-X9b" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardIdentifier="Main" storyboardName="Main" referencedIdentifier="Main" id="XA8-xq-X9b" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Bcz-eC-UcT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1012" y="74"/>
@@ -67,7 +67,7 @@
         <!--Navigation Controller-->
         <scene sceneID="1JG-vi-f0s">
             <objects>
-                <navigationController storyboardIdentifier="NavBar" automaticallyAdjustsScrollViewInsets="NO" id="bRM-ns-gCR" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="SelectCurrencyNav" automaticallyAdjustsScrollViewInsets="NO" id="bRM-ns-gCR" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="cAb-b3-9ep">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>

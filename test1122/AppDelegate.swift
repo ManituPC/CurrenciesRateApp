@@ -19,7 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if defaults.object(forKey: "isFirstTime") == nil {
             defaults.set("No", forKey:"isFirstTime")
             let storyboard = UIStoryboard(name: "SelectCurrency", bundle: nil)
-            let viewController = storyboard.instantiateViewController(withIdentifier: "NavBar")
+            let viewController = storyboard.instantiateViewController(withIdentifier: "SelectCurrencyNav")
             self.window?.rootViewController = viewController
             self.window?.makeKeyAndVisible()
         }

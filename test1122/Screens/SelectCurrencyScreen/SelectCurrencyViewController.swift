@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SelectCurrencyViewController: UIViewController {
+class SelectCurrencyViewController: BaseViewController {
     
     var userSettingsController = UserSettingsController()
     
@@ -24,7 +24,7 @@ class SelectCurrencyViewController: UIViewController {
     
     @IBAction func onClickUSD(_ sender: UIButton) {
         setDefaultCurrency(sender)
-        showScreen()
+        showScreen(name: "Main")
     }
     
     @IBAction func onClickEUR(_ sender: UIButton) {
@@ -43,22 +43,22 @@ class SelectCurrencyViewController: UIViewController {
         }
     }
     
-    func showScreen() {
-        
-        let name = "CitysList"
-        let viewC = self.navigationController?.viewControllers
-        
-        for view in viewC! {
-            print(view)
-        }
-        
-        if let destinationVC = viewC?[0] as? CitysListViewController  {
-            print("popTo")
-            self.navigationController?.popToViewController(destinationVC, animated: true)
-        } else {
-            print("push")
-            let viewController = storyboard?.instantiateViewController(withIdentifier: name)
-            self.navigationController?.pushViewController(viewController!, animated: true)
-        }
-    }
+//    func showScreen() {
+//
+//        let name = "CitysList"
+//        let viewC = self.navigationController?.viewControllers
+//
+//        for view in viewC! {
+//            print(view)
+//        }
+//
+//        if let destinationVC = viewC?[0] as? CitysListViewController  {
+//            print("popTo")
+//            self.navigationController?.popToViewController(destinationVC, animated: true)
+//        } else {
+//            print("push")
+//            let viewController = storyboard?.instantiateViewController(withIdentifier: name)
+//            self.navigationController?.pushViewController(viewController!, animated: true)
+//        }
+//    }
 }

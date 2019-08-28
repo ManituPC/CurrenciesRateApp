@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CitysListViewController: UIViewController {
+class CitysListViewController: BaseViewController {
     
     let citysCollectionViewCellId: String = "CitysListCollectionViewCell"
     
@@ -59,25 +59,7 @@ class CitysListViewController: UIViewController {
     
     //for test
     @objc func addTapped() {
-        print("!!!!!!!!!!!!! click !!!!!!!!!!!!!")
-        
-        let name = "NavBar"
-        
-        //debug
-        let viewC = self.navigationController?.viewControllers
-        for view in viewC! {
-            print(view)
-        }
-        
-        
-        if let destinationVC = viewC?[0] as? SelectCurrencyViewController  {
-            print("popTo")
-            self.navigationController?.popToViewController(destinationVC, animated: true)
-        } else {
-            print("push")
-            let viewController = storyboard?.instantiateViewController(withIdentifier: name)
-            self.navigationController?.pushViewController(viewController!, animated: true)
-        }
+        showScreen(name: "SelectCurrencyNav")
     }
 }
 
