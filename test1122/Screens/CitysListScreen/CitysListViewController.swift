@@ -8,10 +8,9 @@
 
 import UIKit
 
-class CitysListViewController: UIViewController {
+class CitysListViewController: BaseViewController {
     
     let citysCollectionViewCellId: String = "CitysListCollectionViewCell"
-    var userSettingsController: UserSettingsController!
     
     @IBOutlet weak var citysListCollectionsView: UICollectionView!
     
@@ -38,11 +37,15 @@ class CitysListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //debug
+        let viewC = self.navigationController?.viewControllers
+        for view in viewC! {
+            print(view)
+        }
+        
         // TODO: need more details about this
         citysListCollectionsView.dataSource = self
         citysListCollectionsView.delegate = self
-        
-       // print("!!!!!!!!!!!!!!! \(userSettingsController.selectedCurrency) !!!!!!!!!!!!")
         
         // NavBar settings
         // TODO: move to separate controller ???
@@ -56,7 +59,7 @@ class CitysListViewController: UIViewController {
     
     //for test
     @objc func addTapped() {
-        print("!!!!!!!!!!!!! click !!!!!!!!!!!!!")
+        showScreen(name: "SelectCurrencyNav")
     }
 }
 

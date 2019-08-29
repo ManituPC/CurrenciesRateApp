@@ -10,6 +10,5 @@ import Foundation
 
 
 class UserSettingsController {
-    var userSettings = UserSettings(
-        selectedCurrency: "")
+    var userSettings = UserSettings()
 }

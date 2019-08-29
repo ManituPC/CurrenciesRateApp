@@ -8,27 +8,57 @@
 
 import UIKit
 
-class SelectCurrencyViewController: UIViewController {
+class SelectCurrencyViewController: BaseViewController {
     
-    var selectedCurrency: String!
-    var userSettingsController: UserSettingsController!
+    var userSettingsController = UserSettingsController()
     
     @IBOutlet weak var buttonUSD: CustomButton!
     @IBOutlet weak var buttonEUR: CustomButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         buttonUSD.setTitle(NSLocalizedString("usd", tableName: "Localizable", comment: "comment"), for: .normal)
         buttonEUR.setTitle(NSLocalizedString("eur", tableName: "Localizable", comment: "comment"), for: .normal)
     }
     
     @IBAction func onClickUSD(_ sender: UIButton) {
-        print(sender.currentTitle)
-
+        setDefaultCurrency(sender)
+        showScreen(name: "Main")
     }
     
     @IBAction func onClickEUR(_ sender: UIButton) {
-            print(sender.currentTitle)
+        setDefaultCurrency(sender)
+        let viewC = self.navigationController?.viewControllers
+        
+        for view in viewC! {
+            print(view)
+        }
     }
+    
+    func setDefaultCurrency(_ button: UIButton) {
+        if let buttonTitle = button.title(for: .normal) {
+            userSettingsController.userSettings.selectedCurrency = buttonTitle
+            print(buttonTitle)
+        }
+    }
+    
+//    func showScreen() {
+//
+//        let name = "CitysList"
+//        let viewC = self.navigationController?.viewControllers
+//
+//        for view in viewC! {
+//            print(view)
+//        }
+//
+//        if let destinationVC = viewC?[0] as? CitysListViewController  {
+//            print("popTo")
+//            self.navigationController?.popToViewController(destinationVC, animated: true)
+//        } else {
+//            print("push")
+//            let viewController = storyboard?.instantiateViewController(withIdentifier: name)
+//            self.navigationController?.pushViewController(viewController!, animated: true)
+//        }
+//    }
 }
