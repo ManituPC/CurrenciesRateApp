@@ -12,19 +12,40 @@ class BaseViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func showScreen(name: String) {
+        
+        let viewC = self.navigationController?.viewControllers
+        
+        // for debug
+        for view in viewC! {
+            print(view)
+        }
+        
+        switch name {
+        case "Main":
+            if let destinationVC = viewC?[0] as? CitysListViewController  {
+                print("popTo \(destinationVC)")
+                self.navigationController?.popToViewController(destinationVC, animated: true)
+            } else {
+                print("push")
+                let viewController = storyboard?.instantiateViewController(withIdentifier: name)
+                self.navigationController?.pushViewController(viewController!, animated: true)
+            }
+            
+        case "SelectCurrencyNav":
+            if let destinationVC = viewC?[0] as? SelectCurrencyViewController  {
+                print("popTo \(destinationVC)")
+                self.navigationController?.popToViewController(destinationVC, animated: true)
+            } else {
+                print("push")
+                let viewController = storyboard?.instantiateViewController(withIdentifier: name)
+                self.navigationController?.pushViewController(viewController!, animated: true)
+            }
+            
+        default: print("empty")
+        }
+        
     }
-    */
-
 }
