@@ -10,7 +10,7 @@ import UIKit
 
 var rowIndex = 0
 
-class BanksListViewController: UIViewController {
+class BanksListViewController: BaseViewController {
     
     let banksListTableViewCellId = "BanksListTableViewCell"
 //    var bankController: BankController!

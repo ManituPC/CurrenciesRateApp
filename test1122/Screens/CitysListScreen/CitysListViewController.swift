@@ -43,6 +43,8 @@ class CitysListViewController: BaseViewController {
             print(view)
         }
         
+        print("default currency \(userSettingsController.userSettings.selectedCurrency)")
+        
         // TODO: need more details about this
         citysListCollectionsView.dataSource = self
         citysListCollectionsView.delegate = self

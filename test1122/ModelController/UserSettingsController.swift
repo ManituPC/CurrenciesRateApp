@@ -11,4 +11,10 @@ import Foundation
 
 class UserSettingsController {
     var userSettings = UserSettings()
+    
+    func setDefaultCurrency(currency: String) {
+        let defaults = UserDefaults.standard
+        defaults.set(currency, forKey: "defaultCurrency")
+        userSettings.selectedCurrency = currency
+    }
 }

@@ -10,6 +10,8 @@ import UIKit
 
 class BaseViewController: UIViewController {
 
+    var userSettingsController = UserSettingsController()
+
     override func viewDidLoad() {
         super.viewDidLoad()
     }

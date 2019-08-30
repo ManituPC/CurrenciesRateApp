@@ -23,6 +23,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             self.window?.rootViewController = viewController
             self.window?.makeKeyAndVisible()
         }
+        
+        //TODO: load default settings
+        if defaults.object(forKey: "defaultCurrency") != nil {
+            
+        }
+        
         return true
     }
 
