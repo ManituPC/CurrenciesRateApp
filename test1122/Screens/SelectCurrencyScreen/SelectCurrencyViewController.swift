@@ -27,16 +27,12 @@ class SelectCurrencyViewController: BaseViewController {
     
     @IBAction func onClickEUR(_ sender: UIButton) {
         setDefaultCurrency(sender)
-        let viewC = self.navigationController?.viewControllers
-        
-        for view in viewC! {
-            print(view)
-        }
+        showScreen(name: "Main")
     }
     
     func setDefaultCurrency(_ button: UIButton) {
         if let buttonTitle = button.title(for: .normal) {
-            userSettingsController.setDefaultCurrency(currency: buttonTitle)
+            userSettingsController.saveDefaultCurrency(currency: buttonTitle)
             print(buttonTitle)
         }
     }

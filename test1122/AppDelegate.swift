@@ -13,7 +13,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         let defaults = UserDefaults.standard
         if defaults.object(forKey: "isFirstTime") == nil {
@@ -22,11 +21,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let viewController = storyboard.instantiateViewController(withIdentifier: "SelectCurrencyNav")
             self.window?.rootViewController = viewController
             self.window?.makeKeyAndVisible()
-        }
-        
-        //TODO: load default settings
-        if defaults.object(forKey: "defaultCurrency") != nil {
-            
         }
         
         return true
