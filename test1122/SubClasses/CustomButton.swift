@@ -28,6 +28,7 @@ class CustomButton: UIButton {
         layer.cornerRadius = frame.size.height/2
         
         setTitleColor(Colors.twitterBlue, for: .normal)
+        checkStatus()
         addTarget(self, action: #selector(CustomButton.buttonPressed), for: .touchUpInside)
     }
     
@@ -46,5 +47,11 @@ class CustomButton: UIButton {
         setTitleColor(titleColor, for: .normal)
         backgroundColor = color
     }
-
+    
+    func checkStatus() {
+        if UserDefaults.standard.string(forKey: "defaultCurrency") != nil && self.currentTitle == UserDefaults.standard.string(forKey: "defaultCurrency")  {
+            print("status!!!")
+            activateButton(bool: !isOn)
+        }
+    }
 }

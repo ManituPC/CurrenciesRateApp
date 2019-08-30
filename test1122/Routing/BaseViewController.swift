@@ -10,8 +10,17 @@ import UIKit
 
 class BaseViewController: UIViewController {
 
+    var userSettingsController = UserSettingsController()
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        userSettingsController.loadDefaultCurrency()        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        print("default currency is \(userSettingsController.userSettings.selectedCurrency)")
     }
     
     func showScreen(name: String) {

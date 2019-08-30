@@ -8,7 +8,7 @@
 
 import UIKit
 
-class BankDetailsViewController: UIViewController {
+class BankDetailsViewController: BaseViewController {
     
     @IBOutlet weak var bankDetailsTVC: UITableView!
     

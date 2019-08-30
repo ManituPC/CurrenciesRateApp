@@ -9,9 +9,7 @@
 import UIKit
 
 class SelectCurrencyViewController: BaseViewController {
-    
-    var userSettingsController = UserSettingsController()
-    
+        
     @IBOutlet weak var buttonUSD: CustomButton!
     @IBOutlet weak var buttonEUR: CustomButton!
     
@@ -29,36 +27,13 @@ class SelectCurrencyViewController: BaseViewController {
     
     @IBAction func onClickEUR(_ sender: UIButton) {
         setDefaultCurrency(sender)
-        let viewC = self.navigationController?.viewControllers
-        
-        for view in viewC! {
-            print(view)
-        }
+        showScreen(name: "Main")
     }
     
     func setDefaultCurrency(_ button: UIButton) {
         if let buttonTitle = button.title(for: .normal) {
-            userSettingsController.userSettings.selectedCurrency = buttonTitle
+            userSettingsController.saveDefaultCurrency(currency: buttonTitle)
             print(buttonTitle)
         }
     }
-    
-//    func showScreen() {
-//
-//        let name = "CitysList"
-//        let viewC = self.navigationController?.viewControllers
-//
-//        for view in viewC! {
-//            print(view)
-//        }
-//
-//        if let destinationVC = viewC?[0] as? CitysListViewController  {
-//            print("popTo")
-//            self.navigationController?.popToViewController(destinationVC, animated: true)
-//        } else {
-//            print("push")
-//            let viewController = storyboard?.instantiateViewController(withIdentifier: name)
-//            self.navigationController?.pushViewController(viewController!, animated: true)
-//        }
-//    }
 }

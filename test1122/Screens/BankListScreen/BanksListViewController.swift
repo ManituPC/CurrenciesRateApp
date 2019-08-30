@@ -10,7 +10,7 @@ import UIKit
 
 var rowIndex = 0
 
-class BanksListViewController: UIViewController {
+class BanksListViewController: BaseViewController {
     
     let banksListTableViewCellId = "BanksListTableViewCell"
 //    var bankController: BankController!
@@ -79,5 +79,11 @@ extension BanksListViewController: UITableViewDataSource, UITableViewDelegate {
         let name = "BankDetailsViewController"
         let viewController = storyboard?.instantiateViewController(withIdentifier: name)
         self.navigationController?.pushViewController(viewController!, animated: true)
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let label = UILabel()
+        label.text = "Average currency = 999.0"
+        return label
     }
 }

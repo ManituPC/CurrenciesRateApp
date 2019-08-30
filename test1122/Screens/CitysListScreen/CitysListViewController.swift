@@ -42,7 +42,7 @@ class CitysListViewController: BaseViewController {
         for view in viewC! {
             print(view)
         }
-        
+                
         // TODO: need more details about this
         citysListCollectionsView.dataSource = self
         citysListCollectionsView.delegate = self
