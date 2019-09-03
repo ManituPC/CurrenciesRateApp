@@ -34,6 +34,7 @@
 		00C938AC22D6128700E7D7EB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 00C938AA22D6128700E7D7EB /* LaunchScreen.storyboard */; };
 		00C938B522D6296C00E7D7EB /* BanksListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00C938B322D6296C00E7D7EB /* BanksListTableViewCell.swift */; };
 		00C938B622D6296C00E7D7EB /* BanksListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 00C938B422D6296C00E7D7EB /* BanksListTableViewCell.xib */; };
+		00DB39DE231CF2B50019587D /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00DB39DD231CF2B50019587D /* APIManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -66,6 +67,7 @@
 		00C938AD22D6128800E7D7EB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00C938B322D6296C00E7D7EB /* BanksListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BanksListTableViewCell.swift; sourceTree = "<group>"; };
 		00C938B422D6296C00E7D7EB /* BanksListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BanksListTableViewCell.xib; sourceTree = "<group>"; };
+		00DB39DD231CF2B50019587D /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -196,6 +198,7 @@
 		00C938A022D6128500E7D7EB /* test1122 */ = {
 			isa = PBXGroup;
 			children = (
+				00DB39DC231CF13E0019587D /* APIController */,
 				007111BF22DF72BF0030317B /* Resources */,
 				0029B78F22E87908004D2CE8 /* Models */,
 				0091359622F8844700EA10F3 /* ModelController */,
@@ -208,6 +211,14 @@
 				00C938AD22D6128800E7D7EB /* Info.plist */,
 			);
 			path = test1122;
+			sourceTree = "<group>";
+		};
+		00DB39DC231CF13E0019587D /* APIController */ = {
+			isa = PBXGroup;
+			children = (
+				00DB39DD231CF2B50019587D /* APIManager.swift */,
+			);
+			path = APIController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -300,6 +311,7 @@
 				009A8FCF23182F1E0010F444 /* BaseRouter.swift in Sources */,
 				0047088A22E8B81000DBDC5F /* City.swift in Sources */,
 				0091359822F8847900EA10F3 /* BankController.swift in Sources */,
+				00DB39DE231CF2B50019587D /* APIManager.swift in Sources */,
 				00279E5A22E8AFB300576F01 /* CitysListCollectionViewCell.swift in Sources */,
 				0047089022EC4BAF00DBDC5F /* Bank.swift in Sources */,
 				004700DE22FB1F6C00645183 /* UserSettings.swift in Sources */,
