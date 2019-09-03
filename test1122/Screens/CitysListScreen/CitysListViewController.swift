@@ -42,10 +42,6 @@ class CitysListViewController: BaseViewController {
         for view in viewC! {
             print(view)
         }
-        
-        //test API response
-        let apiLoad = APIManager()
-        apiLoad.loadData()
                 
         // TODO: need more details about this
         citysListCollectionsView.dataSource = self

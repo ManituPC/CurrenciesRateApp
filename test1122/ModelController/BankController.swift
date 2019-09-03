@@ -10,11 +10,12 @@ import Foundation
 
 
 class BankController {
-    var bank = Bank(
-        bankCity: "ZPcity",
-        bankName: "PUMB",
-        bankAddress: "VotTutVot, 21b",
-        bankBuy: 23.1,
-        bankSell: 29.9,
-        bankCurrency: [("USD", 23.2),("EUR", 30.0)])
+
+//    var bank = Bank(
+//        bankCity: "ZPcity",
+//        bankName: "PUMB",
+//        bankAddress: "VotTutVot, 21b",
+//        bankBuy: 23.1,
+//        bankSell: 29.9,
+//        bankCurrency: [("USD", 23.2),("EUR", 30.0)])
 }

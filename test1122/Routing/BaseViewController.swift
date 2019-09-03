@@ -15,12 +15,26 @@ class BaseViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        userSettingsController.loadDefaultCurrency()        
+        userSettingsController.loadDefaultCurrency()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         print("default currency is \(userSettingsController.userSettings.selectedCurrency)")
+        
+        
+        //test API response
+        let api = APIManager()
+        api.loadData { (result) in
+            switch result {
+            case .success(let banksArray):
+                banksArray.forEach({ (bank) in
+                    print(bank.address)
+                })
+            case .failure(let error):
+                print("Failed to fetch banks: ", error)
+            }
+        }
     }
     
     func showScreen(name: String) {

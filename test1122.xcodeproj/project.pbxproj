@@ -35,6 +35,9 @@
 		00C938B522D6296C00E7D7EB /* BanksListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00C938B322D6296C00E7D7EB /* BanksListTableViewCell.swift */; };
 		00C938B622D6296C00E7D7EB /* BanksListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 00C938B422D6296C00E7D7EB /* BanksListTableViewCell.xib */; };
 		00DB39DE231CF2B50019587D /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00DB39DD231CF2B50019587D /* APIManager.swift */; };
+		00DC05D1231E8AC00095AD05 /* ResponseData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00DC05D0231E8AC00095AD05 /* ResponseData.swift */; };
+		00DC05D3231EB2090095AD05 /* BankModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00DC05D2231EB2090095AD05 /* BankModel.swift */; };
+		00DC05D5231EC1740095AD05 /* CurrencyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00DC05D4231EC1740095AD05 /* CurrencyModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -68,6 +71,9 @@
 		00C938B322D6296C00E7D7EB /* BanksListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BanksListTableViewCell.swift; sourceTree = "<group>"; };
 		00C938B422D6296C00E7D7EB /* BanksListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BanksListTableViewCell.xib; sourceTree = "<group>"; };
 		00DB39DD231CF2B50019587D /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
+		00DC05D0231E8AC00095AD05 /* ResponseData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseData.swift; sourceTree = "<group>"; };
+		00DC05D2231EB2090095AD05 /* BankModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankModel.swift; sourceTree = "<group>"; };
+		00DC05D4231EC1740095AD05 /* CurrencyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -216,9 +222,20 @@
 		00DB39DC231CF13E0019587D /* APIController */ = {
 			isa = PBXGroup;
 			children = (
+				00DC05CF231E8A800095AD05 /* APIModels */,
 				00DB39DD231CF2B50019587D /* APIManager.swift */,
 			);
 			path = APIController;
+			sourceTree = "<group>";
+		};
+		00DC05CF231E8A800095AD05 /* APIModels */ = {
+			isa = PBXGroup;
+			children = (
+				00DC05D0231E8AC00095AD05 /* ResponseData.swift */,
+				00DC05D2231EB2090095AD05 /* BankModel.swift */,
+				00DC05D4231EC1740095AD05 /* CurrencyModel.swift */,
+			);
+			path = APIModels;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -305,10 +322,13 @@
 				0091359522F584A900EA10F3 /* BankDetailsViewController.swift in Sources */,
 				007111BE22DF71DD0030317B /* CustomButton.swift in Sources */,
 				009A8FCD23182F0E0010F444 /* BaseViewController.swift in Sources */,
+				00DC05D1231E8AC00095AD05 /* ResponseData.swift in Sources */,
 				007111C122DF733F0030317B /* Constants.swift in Sources */,
 				004700E022FB216900645183 /* UserSettingsController.swift in Sources */,
 				009CF8DF22D9D074006BBA91 /* BankDetailsTableViewCell.swift in Sources */,
 				009A8FCF23182F1E0010F444 /* BaseRouter.swift in Sources */,
+				00DC05D3231EB2090095AD05 /* BankModel.swift in Sources */,
+				00DC05D5231EC1740095AD05 /* CurrencyModel.swift in Sources */,
 				0047088A22E8B81000DBDC5F /* City.swift in Sources */,
 				0091359822F8847900EA10F3 /* BankController.swift in Sources */,
 				00DB39DE231CF2B50019587D /* APIManager.swift in Sources */,

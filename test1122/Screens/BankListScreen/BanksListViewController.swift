@@ -37,7 +37,7 @@ class BanksListViewController: BaseViewController {
         
         // NavBar settings
         //TODO: add name from selected cell
-        self.navigationItem.title = itemBanksArray[0].bankCity
+        //self.navigationItem.title = itemBanksArray[0].bankCity
         self.navigationItem.leftBarButtonItem?.title = "Cities"
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Sort by", style: .plain, target: self, action: #selector(addTapped))
         
