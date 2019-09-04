@@ -30,7 +30,6 @@ class BanksListViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //let bank1 = bankController.bank
         
         banksListTableView.dataSource = self
         banksListTableView.delegate = self
@@ -61,12 +60,14 @@ class BanksListViewController: BaseViewController {
 extension BanksListViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return itemBanksArray.count
+        print("banks count \(banksArray.count)")
+        return banksArray.count
+//        return itemBanksArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let itemCell = tableView.dequeueReusableCell(withIdentifier: banksListTableViewCellId, for: indexPath) as! BanksListTableViewCell
-        itemCell.bank = itemBanksArray[indexPath.row]
+        itemCell.bank = banksArray[indexPath.row]
         return itemCell
     }
     

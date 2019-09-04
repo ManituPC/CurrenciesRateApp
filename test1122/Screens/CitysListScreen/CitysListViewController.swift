@@ -11,7 +11,7 @@ import UIKit
 class CitysListViewController: BaseViewController {
     
     let citysCollectionViewCellId: String = "CitysListCollectionViewCell"
-    
+        
     @IBOutlet weak var citysListCollectionsView: UICollectionView!
     
     var itemCityArray: [City] = {

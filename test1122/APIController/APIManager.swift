@@ -11,7 +11,7 @@ import UIKit
 class APIManager {
     let baseURL = "http://resources.finance.ua/"
     let language = "ru"
-    let request = "/currency-cash.json"
+    let request = "/public/currency-cash.json"
     let session = URLSession.shared
     
     func loadData(completion: @escaping (Result<[BankModel], Error>) -> ()) {
@@ -21,10 +21,11 @@ class APIManager {
         session.dataTask(with: url) { (data, response, error) in
             
             //debug print
-            print(data)
-            print(response)
-            print(error)
+//            print(data)
+//            print(response)
+//            print(error)
             
+            //failed
             if let error = error {
                 completion(.failure(error))
                 return
@@ -40,20 +41,5 @@ class APIManager {
                 completion(.failure(jsonError))
             }
         }.resume()
-    
-//        let task = session.dataTask(with: url) { (data, response, error) in
-//            if error != nil {
-//                assertionFailure("error! \(String(describing: error))")
-//            }
-//
-//            let bankData = try JSONDecoder().decode([Bank].self, from: data!)
-//
-//            print(data)
-//            print(response)
-//            print(error)
-//        }
-//
-//        task.resume()
     }
-
 }

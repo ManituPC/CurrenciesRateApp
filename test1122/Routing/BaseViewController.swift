@@ -11,32 +11,27 @@ import UIKit
 class BaseViewController: UIViewController {
 
     var userSettingsController = UserSettingsController()
+    let api = APIManager()
+    var banksArray = [BankModel]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         userSettingsController.loadDefaultCurrency()
+        
+       
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
         print("default currency is \(userSettingsController.userSettings.selectedCurrency)")
         
         
-        //test API response
-        let api = APIManager()
-        api.loadData { (result) in
-            switch result {
-            case .success(let banksArray):
-                banksArray.forEach({ (bank) in
-                    print(bank.address)
-                })
-            case .failure(let error):
-                print("Failed to fetch banks: ", error)
-            }
-        }
+        print(banksArray.count)
     }
     
+    // screens navigation
     func showScreen(name: String) {
         
         let viewC = self.navigationController?.viewControllers
@@ -69,6 +64,20 @@ class BaseViewController: UIViewController {
             
         default: print("empty")
         }
-        
+    }
+    
+    func loadBanks() {
+        // get banks array from json data
+        api.loadData { (result) in
+            switch result {
+            case .success(let banksArrayResponse):
+                banksArrayResponse.forEach({ (bank) in
+                    self.banksArray.append(bank)
+                })
+                print("inside BaseView \(self.banksArray.count)")
+            case .failure(let error):
+                print("Failed to fetch banks: ", error)
+            }
+        }
     }
 }
