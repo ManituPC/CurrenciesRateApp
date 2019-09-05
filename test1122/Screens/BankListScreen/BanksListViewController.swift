@@ -13,20 +13,9 @@ var rowIndex = 0
 class BanksListViewController: BaseViewController {
     
     let banksListTableViewCellId = "BanksListTableViewCell"
-//    var bankController: BankController!
     
     @IBOutlet weak var banksListTableView: UITableView!
     
-    let itemBanksArray: [Bank] = {
-        var bank = Bank()
-        bank.bankCity = "ZPcity"
-        bank.bankName = "PUMB"
-        bank.bankAddress = "VotTutVot, 21b"
-        bank.bankBuy = 23.1
-        bank.bankSell = 29.9
-        bank.bankCurrency = [("USD", 23.2),("EUR", 30.0)]
-        return [bank]
-    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,13 +25,19 @@ class BanksListViewController: BaseViewController {
         
         // NavBar settings
         //TODO: add name from selected cell
-        //self.navigationItem.title = itemBanksArray[0].bankCity
+//        self.navigationItem.title = itemBanksArray[0].bankCity
         self.navigationItem.leftBarButtonItem?.title = "Cities"
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Sort by", style: .plain, target: self, action: #selector(addTapped))
         
         // create cell in tableView
         let nibCell = UINib(nibName: banksListTableViewCellId, bundle: nil)
         banksListTableView.register(nibCell, forCellReuseIdentifier: banksListTableViewCellId)
+    }
+
+    override func refresh() {
+        DispatchQueue.main.async { [weak self] in
+            self?.banksListTableView.reloadData()
+        }
     }
     
     //for test
@@ -60,9 +55,7 @@ class BanksListViewController: BaseViewController {
 extension BanksListViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print("banks count \(banksArray.count)")
         return banksArray.count
-//        return itemBanksArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
