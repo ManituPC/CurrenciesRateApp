@@ -15,7 +15,7 @@ class BaseViewController: UIViewController {
     var jsonData: ResponseData?
     var banksArray = [BankModel]()
     var cityDict = [String: String]()
-    var cityArray = [String]()
+    var cityArray = [City]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -88,26 +88,44 @@ class BaseViewController: UIViewController {
                 }
                 
                 //get citys list
+                var cityNameArr = [String]()
                 self.banksArray.forEach { city in
                     if let cityID = city.cityId {
-                        if self.cityDict[cityID] != nil && self.cityArray.contains(self.cityDict[cityID]!) == false {
-                            self.cityArray.append(self.cityDict[cityID]!)
+                        if self.cityDict[cityID] != nil && cityNameArr.contains(self.cityDict[cityID]!) == false {
+                            cityNameArr.append(self.cityDict[cityID]!)
+                            var city = City()
+                            city.cityName = self.cityDict[cityID]
+                            self.cityArray.append(city)
                         }
                     }
                 }
                 print("DEBUG: city array: \n\(self.cityArray)")
                 
+                //get date
+                if let date = jsonDataResponse.date {
+                    let dateFormatter = DateFormatter()
+                    dateFormatter.locale = Locale(identifier: "en_US_POSIX")
+                    dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
+                    let newDate = dateFormatter.date(from: date)!
+                    dateFormatter.dateFormat = "MMM"
+                    let dateString = dateFormatter.string(from: newDate)
+                    
+                    for var city in self.cityArray {
+                        // i get nil tuta!
+                        city.monthName = dateString
+                        
+                        //print("DEBUG: date for \(city.cityName) is: \(dateString)")
+                    }
+                    print("DEBUG: date is: \(dateString)")
+                }
+                print("DEBUG: date for \(self.cityArray[3].cityName) is: \(self.cityArray[3].monthName)")
+
                 
-//                for bank in self.banksArray {
-//                    if let str = bank.cityId {
-//                        for str in jsonData?.cities {
-//                            switch str {
-//                            case
-//                            }
-//                        }
-//
-//                    }
-//                }
+                //get city currency(avarage, best buy and sell)
+                self.banksArray.forEach { bank in
+                    
+                }
+                
                 
                 self.refresh()
                 //print("DEBUG: inside BaseView JSON: \n\(String(describing: self.jsonData))")
