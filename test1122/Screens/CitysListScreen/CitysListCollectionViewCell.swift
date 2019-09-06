@@ -20,16 +20,18 @@ class CitysListCollectionViewCell: UICollectionViewCell {
         super.awakeFromNib()
     }
     
-    var city: City? {
+    var city: String? {
         didSet {
-            if let image = city?.imageName {
-                cityImage.image = UIImage(named: image)
-            }
-            cityNameLabel.text = city?.cityName
-            monthAndCurrencyLabel.text = city?.monthName
+//            if let image = city?.imageName {
+//                cityImage.image = UIImage(named: "cityZ")
+//            }
+            
+            cityImage.image = UIImage(named: "cityZ")
+            cityNameLabel.text = city
+            monthAndCurrencyLabel.text = "Sep"//city?.monthName
             //FIX: convert Optoional double to string
-            bestBuyLabel.text = "Best buy \n\(city?.bestBuyCost))"
-            bestSellLabel.text = "Best sell \n\(city?.bestSellCost))"
+            bestBuyLabel.text = "Best buy \n26.16)"
+            bestSellLabel.text = "Best sell \n28)"
             
         }
     }

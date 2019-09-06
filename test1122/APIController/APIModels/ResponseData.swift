@@ -12,7 +12,7 @@ import Foundation
 struct ResponseData: Decodable {
     var sourceId: String?
     var date: String?
-    var organizations: [BankModel]
+    var organizations: [BankModel]?
     
     // orgTypes
     var one: String?

@@ -57,6 +57,12 @@ class CitysListViewController: BaseViewController {
         citysListCollectionsView.register(nibCell, forCellWithReuseIdentifier: citysCollectionViewCellId)
     }
     
+    override func refresh() {
+        DispatchQueue.main.async { [weak self] in
+            self?.citysListCollectionsView.reloadData()
+        }
+    }
+    
     //for test
     @objc func addTapped() {
         showScreen(name: "SelectCurrencyNav")
@@ -66,12 +72,13 @@ class CitysListViewController: BaseViewController {
 extension CitysListViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return itemCityArray.count
+        return self.cityArray.count
+//        return itemCityArray.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if let itemCell = citysListCollectionsView.dequeueReusableCell(withReuseIdentifier: citysCollectionViewCellId, for: indexPath) as? CitysListCollectionViewCell {
-            itemCell.city = itemCityArray[indexPath.row]
+            itemCell.city = self.cityArray[indexPath.row]
             return itemCell
         }
         return UICollectionViewCell()
