@@ -28,11 +28,10 @@ class CitysListCollectionViewCell: UICollectionViewCell {
             
             cityImage.image = UIImage(named: "cityZ")
             cityNameLabel.text = city?.cityName
-            monthAndCurrencyLabel.text = city?.monthName
+            monthAndCurrencyLabel.text = "\(city?.monthName)  \(String(format:"%.2f", (city?.bestAvarage)!))"
             //FIX: convert Optoional double to string
-            bestBuyLabel.text = "Best buy \n26.16)"
-            bestSellLabel.text = "Best sell \n28)"
-            
+            bestBuyLabel.text = "Best buy \n\(String(format:"%.2f", (city?.bestBuyCost)!))"
+            bestSellLabel.text = "Best sell \n\(String(format:"%.2f", (city?.bestSellCost)!))"
         }
     }
 }

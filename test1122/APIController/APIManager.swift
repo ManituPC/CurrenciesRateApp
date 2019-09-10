@@ -20,11 +20,6 @@ class APIManager {
         
         session.dataTask(with: url) { (data, response, error) in
             
-            //debug print
-//            print(data)
-//            print(response)
-//            print(error)
-            
             //failed
             if let error = error {
                 completion(.failure(error))
@@ -41,40 +36,5 @@ class APIManager {
                 completion(.failure(jsonError))
             }
         }.resume()
-    }
-    
-    func loadBanksData2() {
-        
-    }
-    
-    
-    func loadBanksData(completion: @escaping (Result<[BankModel], Error>) -> ()) {
-        
-        guard let url = URL(string: baseURL + language + request) else { return }
-        
-        session.dataTask(with: url) { (data, response, error) in
-            
-            //debug print
-            //            print(data)
-            //            print(response)
-            //            print(error)
-            
-            //failed
-            if let error = error {
-                completion(.failure(error))
-                return
-            }
-            
-            // successful
-            do {
-                let jsonData = try JSONDecoder().decode(ResponseData.self, from: data!)
-                if let banksArray = jsonData.organizations {
-                    completion(.success(banksArray))
-                }
-            } catch let jsonError {
-                print("ups: ", jsonError)
-                completion(.failure(jsonError))
-            }
-            }.resume()
     }
 }

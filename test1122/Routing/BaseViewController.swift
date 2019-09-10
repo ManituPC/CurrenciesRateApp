@@ -21,8 +21,7 @@ class BaseViewController: UIViewController {
         super.viewDidLoad()
         
         userSettingsController.loadDefaultCurrency()
-        loadJSONData()
-        
+        loadJSONDataAndGetInfo()
         
         //debug prints
         print("DEBUG: default currency is \(userSettingsController.userSettings.selectedCurrency)")
@@ -30,10 +29,10 @@ class BaseViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        loadB()
     }
     
-    // screens navigation
+    
+    // MARK: screens navigation
     func showScreen(name: String) {
         
         let viewC = self.navigationController?.viewControllers
@@ -69,7 +68,7 @@ class BaseViewController: UIViewController {
     }
     
     // MARK: get banks data from API
-    func loadJSONData() {
+    func loadJSONDataAndGetInfo() {
         // get banks array from json data
         api.loadJSONData { (result) in
             switch result {
@@ -77,7 +76,7 @@ class BaseViewController: UIViewController {
                 self.jsonData = jsonDataResponse
                 
                 //get banksArray
-                if let banks = jsonDataResponse.organizations  {
+                if let banks = self.jsonData?.organizations  {
                     self.banksArray = banks
                 }
                 
@@ -88,79 +87,107 @@ class BaseViewController: UIViewController {
                 }
                 
                 //get citys list
-                var cityNameArr = [String]()
-                self.banksArray.forEach { bank in
-                    if let cityID = bank.cityId {
-                        if self.cityDict[cityID] != nil && cityNameArr.contains(self.cityDict[cityID]!) == false {
-                            cityNameArr.append(self.cityDict[cityID]!)
-                            var city = City()
-                            city.cityName = self.cityDict[cityID]
-                            self.cityArray.append(city)
-                        }
-                    }
-                }
-                print("DEBUG: city array: \n\(self.cityArray)")
+                self.getCityArr()
 
                 //get date
-                if let date = jsonDataResponse.date {
-                    let dateFormatter = DateFormatter()
-                    dateFormatter.locale = Locale(identifier: "en_US_POSIX")
-                    dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
-                    let newDate = dateFormatter.date(from: date)!
-                    dateFormatter.dateFormat = "MMM"
-                    let dateString = dateFormatter.string(from: newDate)
-                    print("DEBUG: date is: \(dateString)")
-                    
-                    for i in 0...self.cityArray.count - 1 {
-                        self.cityArray[i].monthName = dateString
-                    }
-                }
+                self.getDate(jsonDataResponse: self.jsonData)
                 
-                //get bankId for city
-                if self.userSettingsController.userSettings.selectedCurrency != nil {
-                    for i in 0 ..< self.cityArray.count{
-                        let city = self.cityArray[i]
-                        if let cityId = self.cityDict.first(where: {$0.value == city.cityName})?.key{
-                            let filtered = self.banksArray.filter({$0.cityId == cityId})
-                            self.cityArray[i].bankIdArr = filtered.map {$0.id ?? ""}
-                        }
-                    }
-                }
-                print("DEBUG: banks in city \(self.cityArray[0].cityName): \(self.cityArray[0].bankIdArr?.count)")
+                //get bankId for city, city's currency(avarage, best buy and sell)
+                self.sortBanksToCity()
                 
-                //get city currency(avarage, best buy and sell)
-                
-                
+                //refresh view
                 self.refresh()
-                //print("DEBUG: inside BaseView JSON: \n\(String(describing: self.jsonData))")
+                
             case .failure(let error):
                 print("Failed to fetch banks: ", error)
             }
         }
     }
     
-    func loadB() {
-        if let banks = jsonData?.organizations  {
-            self.banksArray = banks
-        }
-        
-        self.refresh()
-        print("DEBUG: inside BaseView banks count = \(self.banksArray.count)")
-    }
-    
-    func loadBanksData() {
-        // get banks array from json data
-        api.loadBanksData { (result) in
-            switch result {
-            case .success(let banksArrayResponse):
-                self.banksArray = banksArrayResponse
-                self.refresh()
-                print("DEBUG: inside BaseView banks count = \(self.banksArray.count)")
-            case .failure(let error):
-                print("Failed to fetch banks: ", error)
-            }
-        }
-    }
     
     func refresh() { }
+    
+    // MARK: Get city array
+    func getCityArr() {
+        var cityNameArr = [String]()
+        self.banksArray.forEach { bank in
+            if let cityID = bank.cityId {
+                if self.cityDict[cityID] != nil && cityNameArr.contains(self.cityDict[cityID]!) == false {
+                    cityNameArr.append(self.cityDict[cityID]!)
+                    var city = City()
+                    city.cityName = self.cityDict[cityID]
+                    self.cityArray.append(city)
+                }
+            }
+        }
+        print("DEBUG: city array: \n\(self.cityArray)")
+    }
+    
+    // MARK: Get date
+    func getDate(jsonDataResponse: ResponseData?) {
+        if let date = jsonDataResponse?.date {
+            let dateFormatter = DateFormatter()
+            dateFormatter.locale = Locale(identifier: "en_US_POSIX")
+            dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
+            let newDate = dateFormatter.date(from: date)!
+            dateFormatter.dateFormat = "MMM"
+            let dateString = dateFormatter.string(from: newDate)
+            print("DEBUG: date is: \(dateString)")
+            
+            for i in 0...self.cityArray.count - 1 {
+                self.cityArray[i].monthName = dateString
+            }
+        }
+    }
+    
+    // MARK: Sort banks to city and get some general value
+    func sortBanksToCity() {
+        if let curr = self.userSettingsController.userSettings.selectedCurrency {
+            for i in 0 ..< self.cityArray.count {
+                let city = self.cityArray[i]
+                if let cityId = self.cityDict.first(where: {$0.value == city.cityName})?.key{
+                    let filtered = self.banksArray.filter({$0.cityId == cityId}) //banks of current city
+                    self.cityArray[i].bankIdArr = filtered.map {$0.id ?? ""} //write banks to id array
+                    print("DEBUG: banks in city \(self.cityArray[i].cityName): \(self.cityArray[i].bankIdArr?.count)")
+                    
+                    //get avarage, best buy and sell
+                    self.getAvarageBuySell(filteredBanksArr: filtered, curr: curr, index: i)
+                    
+                }
+            }
+        }
+    }
+    
+    // MARK: Get avarage, best buy and best sell
+    func getAvarageBuySell(filteredBanksArr: [BankModel], curr: String, index: Int) {
+        var bestBuy = 0.0
+        var bestSell = 0.0
+        var avarage = 0.0
+        var sumSell = 0.0
+        var sumBuy = 0.0
+        var arrSell = [Double]()
+        var arrBuy = [Double]()
+        
+        for i in 0 ..< filteredBanksArr.count {
+            if let value = filteredBanksArr[i].currencies[curr] {
+                if let sumS = value.ask {
+                    arrSell.append(Double(sumS) ?? 0.0)
+                    sumSell += Double(sumS) ?? 0.0
+                }
+                if let sumB = value.bid {
+                    arrBuy.append(Double(sumB) ?? 0.0)
+                    sumBuy += Double(sumB) ?? 0.0
+                }
+            } else {
+                print("DEBUG: Current currency is nil! \nDEBUG: Bank \(filteredBanksArr[i].bankName) have this currency: \(filteredBanksArr[i].currencies)")
+            }
+        }
+        
+        bestSell = arrSell.max() ?? 0.0
+        bestBuy = arrBuy.max() ?? 0.0
+        avarage = (sumSell + sumBuy) / Double(filteredBanksArr.count * 2)
+        self.cityArray[index].bestBuyCost = bestBuy
+        self.cityArray[index].bestSellCost = bestSell
+        self.cityArray[index].bestAvarage = avarage
+    }
 }
