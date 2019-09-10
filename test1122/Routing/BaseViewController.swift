@@ -68,7 +68,7 @@ class BaseViewController: UIViewController {
         }
     }
     
-    //MARK: get banks data from API
+    // MARK: get banks data from API
     func loadJSONData() {
         // get banks array from json data
         api.loadJSONData { (result) in
@@ -89,8 +89,8 @@ class BaseViewController: UIViewController {
                 
                 //get citys list
                 var cityNameArr = [String]()
-                self.banksArray.forEach { city in
-                    if let cityID = city.cityId {
+                self.banksArray.forEach { bank in
+                    if let cityID = bank.cityId {
                         if self.cityDict[cityID] != nil && cityNameArr.contains(self.cityDict[cityID]!) == false {
                             cityNameArr.append(self.cityDict[cityID]!)
                             var city = City()
@@ -100,7 +100,7 @@ class BaseViewController: UIViewController {
                     }
                 }
                 print("DEBUG: city array: \n\(self.cityArray)")
-                
+
                 //get date
                 if let date = jsonDataResponse.date {
                     let dateFormatter = DateFormatter()
@@ -109,22 +109,26 @@ class BaseViewController: UIViewController {
                     let newDate = dateFormatter.date(from: date)!
                     dateFormatter.dateFormat = "MMM"
                     let dateString = dateFormatter.string(from: newDate)
-                    
-                    for var city in self.cityArray {
-                        // i get nil tuta!
-                        city.monthName = dateString
-                        
-                        //print("DEBUG: date for \(city.cityName) is: \(dateString)")
-                    }
                     print("DEBUG: date is: \(dateString)")
+                    
+                    for i in 0...self.cityArray.count - 1 {
+                        self.cityArray[i].monthName = dateString
+                    }
                 }
-                print("DEBUG: date for \(self.cityArray[3].cityName) is: \(self.cityArray[3].monthName)")
-
+                
+                //get bankId for city
+                if self.userSettingsController.userSettings.selectedCurrency != nil {
+                    for i in 0 ..< self.cityArray.count{
+                        let city = self.cityArray[i]
+                        if let cityId = self.cityDict.first(where: {$0.value == city.cityName})?.key{
+                            let filtered = self.banksArray.filter({$0.cityId == cityId})
+                            self.cityArray[i].bankIdArr = filtered.map {$0.id ?? ""}
+                        }
+                    }
+                }
+                print("DEBUG: banks in city \(self.cityArray[0].cityName): \(self.cityArray[0].bankIdArr?.count)")
                 
                 //get city currency(avarage, best buy and sell)
-                self.banksArray.forEach { bank in
-                    
-                }
                 
                 
                 self.refresh()
