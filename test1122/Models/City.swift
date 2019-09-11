@@ -16,5 +16,5 @@ struct City {
     var bestAvarage: Double?
     var bestBuyCost: Double?
     var bestSellCost: Double?
-    var bankIdArr: [String]?
+    var banksArr: [BankModel]?
 }

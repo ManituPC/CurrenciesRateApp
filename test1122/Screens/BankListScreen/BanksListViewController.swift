@@ -26,7 +26,7 @@ class BanksListViewController: BaseViewController {
         
         // NavBar settings
         //TODO: add name from selected cell
-//        self.navigationItem.title = cityArray[myIndex].cityName
+        self.navigationItem.title = cityController.titleCity
         self.navigationItem.leftBarButtonItem?.title = "Cities"
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Sort by", style: .plain, target: self, action: #selector(addTapped))
         
@@ -61,7 +61,7 @@ class BanksListViewController: BaseViewController {
 extension BanksListViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return cityController.banksArray.count
+        return cityController.cityArray[5].banksArr?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

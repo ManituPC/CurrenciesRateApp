@@ -97,8 +97,8 @@ class BaseModelController: UserSettingsController {
                 let city = self.cityArray[i]
                 if let cityId = self.cityDict.first(where: {$0.value == city.cityName})?.key{
                     let filtered = self.banksArray.filter({$0.cityId == cityId}) //banks of current city
-                    self.cityArray[i].bankIdArr = filtered.map {$0.id ?? ""} //write banks to id array
-                    print("DEBUG: banks in city \(self.cityArray[i].cityName): \(self.cityArray[i].bankIdArr?.count)")
+                    self.cityArray[i].banksArr = filtered.map {$0.self} //write banks to id array
+                    print("DEBUG: banks in city \(self.cityArray[i].cityName): \(self.cityArray[i].banksArr?.count)")
                     
                     //get avarage, best buy and sell
                     self.getAvarageBuySell(filteredBanksArr: filtered, curr: curr, index: i)

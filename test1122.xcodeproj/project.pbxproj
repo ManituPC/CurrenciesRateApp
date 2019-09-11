@@ -176,8 +176,8 @@
 			children = (
 				004700DF22FB216900645183 /* UserSettingsController.swift */,
 				003C4C632328FCBA0059E00F /* BaseModelController.swift */,
-				0091359722F8847900EA10F3 /* BankController.swift */,
 				003C4C652328FE880059E00F /* CityController.swift */,
+				0091359722F8847900EA10F3 /* BankController.swift */,
 			);
 			path = ModelController;
 			sourceTree = "<group>";

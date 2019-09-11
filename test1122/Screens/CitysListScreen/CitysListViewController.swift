@@ -92,6 +92,10 @@ extension CitysListViewController: UICollectionViewDataSource, UICollectionViewD
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let banksListVC = segue.destination as? BanksListViewController {
             banksListVC.cityController = cityController
+            if let index = sender as? Int {
+                banksListVC.cityController.titleCity = cityController.cityArray[index].cityName
+            }
+            
         }
     }
 }

@@ -9,7 +9,7 @@
 import Foundation
 
 
-class BankController: BaseModelController {
+class BankController: CityController {
     
-//    var bank = BankModel()
+    
 }
