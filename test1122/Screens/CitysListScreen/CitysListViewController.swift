@@ -11,6 +11,7 @@ import UIKit
 class CitysListViewController: BaseViewController {
     
     let citysCollectionViewCellId: String = "CitysListCollectionViewCell"
+    var cityController = CityController()
         
     @IBOutlet weak var citysListCollectionsView: UICollectionView!
     
@@ -31,11 +32,17 @@ class CitysListViewController: BaseViewController {
         // NavBar settings
         // TODO: move to separate controller ???
         self.navigationItem.title = "Cities"
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Change currency", style: .plain, target: self, action: #selector(addTapped))
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Change currency", style: .plain, target: self, action: #selector(clickChangeCurrency))
         
         // create cell in collectionView
         let nibCell = UINib(nibName: citysCollectionViewCellId, bundle: nil)
         citysListCollectionsView.register(nibCell, forCellWithReuseIdentifier: citysCollectionViewCellId)
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        cityController.loadJSONDataAndGetInfo(refresh: refresh)
     }
     
     override func refresh() {
@@ -44,8 +51,8 @@ class CitysListViewController: BaseViewController {
         }
     }
     
-    //for test
-    @objc func addTapped() {
+    // Navigat to Currency screen
+    @objc func clickChangeCurrency() {
         showScreen(name: "SelectCurrencyNav")
     }
 }
@@ -53,12 +60,13 @@ class CitysListViewController: BaseViewController {
 extension CitysListViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return self.cityArray.count
+//        return self.cityArray.count
+        return cityController.cityArray.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if let itemCell = citysListCollectionsView.dequeueReusableCell(withReuseIdentifier: citysCollectionViewCellId, for: indexPath) as? CitysListCollectionViewCell {
-            itemCell.city = self.cityArray[indexPath.row]
+            itemCell.city = cityController.cityArray[indexPath.row]
             return itemCell
         }
         return UICollectionViewCell()
@@ -78,8 +86,12 @@ extension CitysListViewController: UICollectionViewDataSource, UICollectionViewD
     
     //TODO: func didSelecte where use segue for open BanksList.storyboard
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let name = "BanksListViewController"
-        let viewController = storyboard?.instantiateViewController(withIdentifier: name)
-        self.navigationController?.pushViewController(viewController!, animated: true)
+        performSegue(withIdentifier: "segue", sender: indexPath.row)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let banksListVC = segue.destination as? BanksListViewController {
+            banksListVC.cityController = cityController
+        }
     }
 }

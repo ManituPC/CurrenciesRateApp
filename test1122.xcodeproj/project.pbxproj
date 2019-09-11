@@ -11,6 +11,8 @@
 		00279E5B22E8AFB300576F01 /* CitysListCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 00279E5922E8AFB300576F01 /* CitysListCollectionViewCell.xib */; };
 		00279E5D22E8B04800576F01 /* CitysListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00279E5C22E8B04800576F01 /* CitysListViewController.swift */; };
 		0029B79222E87B33004D2CE8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0029B79122E87B33004D2CE8 /* Main.storyboard */; };
+		003C4C642328FCBA0059E00F /* BaseModelController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 003C4C632328FCBA0059E00F /* BaseModelController.swift */; };
+		003C4C662328FE880059E00F /* CityController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 003C4C652328FE880059E00F /* CityController.swift */; };
 		004700DE22FB1F6C00645183 /* UserSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 004700DD22FB1F6C00645183 /* UserSettings.swift */; };
 		004700E022FB216900645183 /* UserSettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 004700DF22FB216900645183 /* UserSettingsController.swift */; };
 		0047088A22E8B81000DBDC5F /* City.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0047088922E8B81000DBDC5F /* City.swift */; };
@@ -45,6 +47,8 @@
 		00279E5922E8AFB300576F01 /* CitysListCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CitysListCollectionViewCell.xib; sourceTree = "<group>"; };
 		00279E5C22E8B04800576F01 /* CitysListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CitysListViewController.swift; sourceTree = "<group>"; };
 		0029B79122E87B33004D2CE8 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		003C4C632328FCBA0059E00F /* BaseModelController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseModelController.swift; sourceTree = "<group>"; };
+		003C4C652328FE880059E00F /* CityController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityController.swift; sourceTree = "<group>"; };
 		004700DD22FB1F6C00645183 /* UserSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettings.swift; sourceTree = "<group>"; };
 		004700DF22FB216900645183 /* UserSettingsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettingsController.swift; sourceTree = "<group>"; };
 		0047088922E8B81000DBDC5F /* City.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = City.swift; sourceTree = "<group>"; };
@@ -170,8 +174,10 @@
 		0091359622F8844700EA10F3 /* ModelController */ = {
 			isa = PBXGroup;
 			children = (
-				0091359722F8847900EA10F3 /* BankController.swift */,
 				004700DF22FB216900645183 /* UserSettingsController.swift */,
+				003C4C632328FCBA0059E00F /* BaseModelController.swift */,
+				0091359722F8847900EA10F3 /* BankController.swift */,
+				003C4C652328FE880059E00F /* CityController.swift */,
 			);
 			path = ModelController;
 			sourceTree = "<group>";
@@ -334,9 +340,11 @@
 				00DB39DE231CF2B50019587D /* APIManager.swift in Sources */,
 				00279E5A22E8AFB300576F01 /* CitysListCollectionViewCell.swift in Sources */,
 				0047089022EC4BAF00DBDC5F /* Bank.swift in Sources */,
+				003C4C642328FCBA0059E00F /* BaseModelController.swift in Sources */,
 				004700DE22FB1F6C00645183 /* UserSettings.swift in Sources */,
 				00279E5D22E8B04800576F01 /* CitysListViewController.swift in Sources */,
 				00C938A222D6128500E7D7EB /* AppDelegate.swift in Sources */,
+				003C4C662328FE880059E00F /* CityController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -22,14 +22,9 @@ class CitysListCollectionViewCell: UICollectionViewCell {
     
     var city: City? {
         didSet {
-//            if let image = city?.imageName {
-//                cityImage.image = UIImage(named: "cityZ")
-//            }
-            
             cityImage.image = UIImage(named: "cityZ")
             cityNameLabel.text = city?.cityName
-            monthAndCurrencyLabel.text = "\(city?.monthName)  \(String(format:"%.2f", (city?.bestAvarage)!))"
-            //FIX: convert Optoional double to string
+            monthAndCurrencyLabel.text = "\(String(describing: (city?.monthName)!))  \(String(format:"%.2f", (city?.bestAvarage)!))"
             bestBuyLabel.text = "Best buy \n\(String(format:"%.2f", (city?.bestBuyCost)!))"
             bestSellLabel.text = "Best sell \n\(String(format:"%.2f", (city?.bestSellCost)!))"
         }

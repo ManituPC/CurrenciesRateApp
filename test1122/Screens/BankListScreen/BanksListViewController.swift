@@ -13,6 +13,7 @@ var rowIndex = 0
 class BanksListViewController: BaseViewController {
     
     let banksListTableViewCellId = "BanksListTableViewCell"
+    var cityController = CityController()
     
     @IBOutlet weak var banksListTableView: UITableView!
     
@@ -25,13 +26,18 @@ class BanksListViewController: BaseViewController {
         
         // NavBar settings
         //TODO: add name from selected cell
-//        self.navigationItem.title = itemBanksArray[0].bankCity
+//        self.navigationItem.title = cityArray[myIndex].cityName
         self.navigationItem.leftBarButtonItem?.title = "Cities"
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Sort by", style: .plain, target: self, action: #selector(addTapped))
         
         // create cell in tableView
         let nibCell = UINib(nibName: banksListTableViewCellId, bundle: nil)
         banksListTableView.register(nibCell, forCellReuseIdentifier: banksListTableViewCellId)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        //bankController.loadJSONDataAndGetInfo(refresh: refresh)
     }
 
     override func refresh() {
@@ -55,12 +61,12 @@ class BanksListViewController: BaseViewController {
 extension BanksListViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return banksArray.count
+        return cityController.banksArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let itemCell = tableView.dequeueReusableCell(withIdentifier: banksListTableViewCellId, for: indexPath) as! BanksListTableViewCell
-        itemCell.bank = banksArray[indexPath.row]
+        itemCell.bank = cityController.banksArray[indexPath.row]
         return itemCell
     }
     

@@ -29,7 +29,6 @@ class APIManager {
             // successful
             do {
                 let jsonData = try JSONDecoder().decode(ResponseData.self, from: data!)
-                //let banksArray = jsonData.organizations
                 completion(.success(jsonData))
             } catch let jsonError {
                 print("ups: ", jsonError)
