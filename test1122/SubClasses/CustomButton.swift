@@ -50,7 +50,6 @@ class CustomButton: UIButton {
     
     func checkStatus() {
         if UserDefaults.standard.string(forKey: "defaultCurrency") != nil && self.currentTitle == UserDefaults.standard.string(forKey: "defaultCurrency")  {
-            print("status!!!")
             activateButton(bool: !isOn)
         }
     }

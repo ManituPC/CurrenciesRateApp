@@ -11,5 +11,4 @@ import Foundation
 
 class UserSettings {
     var selectedCurrency: String?
-    
 }

@@ -11,28 +11,10 @@ import UIKit
 class CitysListViewController: BaseViewController {
     
     let citysCollectionViewCellId: String = "CitysListCollectionViewCell"
-    
+    var cityController = CityController()
+        
     @IBOutlet weak var citysListCollectionsView: UICollectionView!
     
-    var itemCityArray: [City] = {
-        var city1 = City()
-        //FIX: displaying image + label. Now is working like: or image, or label
-        city1.imageName = "cityZ"
-        city1.cityName = "ZPcity"
-        city1.monthName = "Aug"
-        city1.bestBuyCost = 26.16
-        city1.bestSellCost = 29.16
-        
-        var city2 = City()
-        //FIX: displaying image + label. Now is working like: or image, or label
-        city2.imageName = "cityZ"
-        city2.cityName = "Dnepr"
-        city2.monthName = "Sep"
-        city2.bestBuyCost = 26.18
-        city2.bestSellCost = 29.20
-        
-        return [city1, city2]
-    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,15 +32,27 @@ class CitysListViewController: BaseViewController {
         // NavBar settings
         // TODO: move to separate controller ???
         self.navigationItem.title = "Cities"
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Change currency", style: .plain, target: self, action: #selector(addTapped))
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Change currency", style: .plain, target: self, action: #selector(clickChangeCurrency))
         
         // create cell in collectionView
         let nibCell = UINib(nibName: citysCollectionViewCellId, bundle: nil)
         citysListCollectionsView.register(nibCell, forCellWithReuseIdentifier: citysCollectionViewCellId)
+        
     }
     
-    //for test
-    @objc func addTapped() {
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        cityController.loadJSONDataAndGetInfo(refresh: refresh)
+    }
+    
+    override func refresh() {
+        DispatchQueue.main.async { [weak self] in
+            self?.citysListCollectionsView.reloadData()
+        }
+    }
+    
+    // Navigat to Currency screen
+    @objc func clickChangeCurrency() {
         showScreen(name: "SelectCurrencyNav")
     }
 }
@@ -66,12 +60,13 @@ class CitysListViewController: BaseViewController {
 extension CitysListViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return itemCityArray.count
+//        return self.cityArray.count
+        return cityController.cityArray.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if let itemCell = citysListCollectionsView.dequeueReusableCell(withReuseIdentifier: citysCollectionViewCellId, for: indexPath) as? CitysListCollectionViewCell {
-            itemCell.city = itemCityArray[indexPath.row]
+            itemCell.city = cityController.cityArray[indexPath.row]
             return itemCell
         }
         return UICollectionViewCell()
@@ -91,8 +86,12 @@ extension CitysListViewController: UICollectionViewDataSource, UICollectionViewD
     
     //TODO: func didSelecte where use segue for open BanksList.storyboard
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let name = "BanksListViewController"
-        let viewController = storyboard?.instantiateViewController(withIdentifier: name)
-        self.navigationController?.pushViewController(viewController!, animated: true)
+        performSegue(withIdentifier: "segue", sender: indexPath.row)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let banksListVC = segue.destination as? BanksListViewController {
+            banksListVC.cityController = cityController
+        }
     }
 }

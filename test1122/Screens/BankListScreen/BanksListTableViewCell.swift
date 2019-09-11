@@ -26,13 +26,23 @@ class BanksListTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    var bank: Bank? {
+//    var bank: Bank? {
+//        didSet {
+//            bankName.text = bank?.bankName
+//            bankAddress.text = bank?.bankAddress
+//            //FIX: convert Optoional double to string
+//            bankBuy.text = "$ \(bank?.bankBuy)"
+//            bankSell.text = "$ \(bank?.bankSell)"
+//        }
+//    }
+    
+    var bank: BankModel? {
         didSet {
             bankName.text = bank?.bankName
-            bankAddress.text = bank?.bankAddress
+            bankAddress.text = bank?.address
             //FIX: convert Optoional double to string
-            bankBuy.text = "$ \(bank?.bankBuy)"
-            bankSell.text = "$ \(bank?.bankSell)"
+            bankBuy.text = "$ 25.15)"
+            bankSell.text = "$ 26.0)"
         }
     }
 }

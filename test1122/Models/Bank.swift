@@ -10,6 +10,8 @@ import Foundation
 
 
 struct Bank {
+    
+    // soon delete this
     var bankCity: String?
     var bankName: String?
     var bankAddress: String?

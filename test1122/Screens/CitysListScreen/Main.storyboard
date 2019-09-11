@@ -52,7 +52,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                         </view>
                                         <connections>
-                                            <segue destination="HVS-9y-wLk" kind="show" id="Aaw-O2-jda"/>
+                                            <segue destination="HVS-9y-wLk" kind="show" identifier="segue" id="Aaw-O2-jda"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
