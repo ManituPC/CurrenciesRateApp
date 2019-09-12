@@ -64,12 +64,15 @@ class BaseModelController: UserSettingsController {
             if let cityID = bank.cityId {
                 if self.cityDict[cityID] != nil && cityNameArr.contains(self.cityDict[cityID]!) == false {
                     cityNameArr.append(self.cityDict[cityID]!)
-                    var city = City()
-                    city.cityName = self.cityDict[cityID]
-                    self.cityArray.append(city)
                 }
             }
         }
+        self.cityArray = cityNameArr.map({ (name) -> City in
+            var city = City()
+            city.cityName = name
+            return city
+        })
+        
         print("DEBUG: city array: \n\(self.cityArray)")
     }
     
@@ -96,9 +99,9 @@ class BaseModelController: UserSettingsController {
             for i in 0 ..< self.cityArray.count {
                 let city = self.cityArray[i]
                 if let cityId = self.cityDict.first(where: {$0.value == city.cityName})?.key{
-                    let filtered = self.banksArray.filter({$0.cityId == cityId}) //banks of current city
+                    let filtered = self.banksArray.filter({$0.cityId == cityId}) //banksArr for current city
                     self.cityArray[i].banksArr = filtered.map {$0.self} //write banks to id array
-                    print("DEBUG: banks in city \(self.cityArray[i].cityName): \(self.cityArray[i].banksArr?.count)")
+                    print("DEBUG: banks in city \(self.cityArray[i].cityName): \(self.cityArray[i].banksArr?.count) and \(self.cityArray[i].banksArr?[0].bankName)")
                     
                     //get avarage, best buy and sell
                     self.getAvarageBuySell(filteredBanksArr: filtered, curr: curr, index: i)
@@ -113,8 +116,22 @@ class BaseModelController: UserSettingsController {
         var bestBuy = 0.0
         var bestSell = 0.0
         var avarage = 0.0
-        var sumSell = 0.0
-        var sumBuy = 0.0
+        var tupleBuySell = (buy: [Double](), sell: [Double]())
+        var tupleSum = (sumBuy: Double(), sumSell: Double())
+
+        tupleBuySell = sortBuySellValue(filteredBanksArr: filteredBanksArr, curr: curr)
+        tupleSum = calcAmount(filteredBanksArr: filteredBanksArr, curr: curr)
+                
+        bestSell = tupleBuySell.sell.max() ?? 0.0
+        bestBuy = tupleBuySell.buy.max() ?? 0.0
+        avarage = (tupleSum.sumSell + tupleSum.sumBuy) / Double(filteredBanksArr.count * 2)
+        self.cityArray[index].bestBuyCost = bestBuy
+        self.cityArray[index].bestSellCost = bestSell
+        self.cityArray[index].bestAvarage = avarage
+    }
+    
+    // MARK: Get sorted Buy and Sell value
+    func sortBuySellValue(filteredBanksArr: [BankModel], curr: String) -> (buy: [Double], sell: [Double]) {
         var arrSell = [Double]()
         var arrBuy = [Double]()
         
@@ -122,10 +139,28 @@ class BaseModelController: UserSettingsController {
             if let value = filteredBanksArr[i].currencies[curr] {
                 if let sumS = value.ask {
                     arrSell.append(Double(sumS) ?? 0.0)
-                    sumSell += Double(sumS) ?? 0.0
                 }
                 if let sumB = value.bid {
                     arrBuy.append(Double(sumB) ?? 0.0)
+                }
+            } else {
+                print("DEBUG: Current currency is nil! \nDEBUG: Bank \(filteredBanksArr[i].bankName) have this currency: \(filteredBanksArr[i].currencies)")
+            }
+        }
+        return (buy: arrBuy, sell: arrSell)
+    }
+    
+    // MARK: Calculate avarege
+    func calcAmount(filteredBanksArr: [BankModel], curr: String) -> (sumBuy: Double, sumSell: Double) {
+        var sumSell = 0.0
+        var sumBuy = 0.0
+        
+        for i in 0 ..< filteredBanksArr.count {
+            if let value = filteredBanksArr[i].currencies[curr] {
+                if let sumS = value.ask {
+                    sumSell += Double(sumS) ?? 0.0
+                }
+                if let sumB = value.bid {
                     sumBuy += Double(sumB) ?? 0.0
                 }
             } else {
@@ -133,14 +168,30 @@ class BaseModelController: UserSettingsController {
             }
         }
         
-        bestSell = arrSell.max() ?? 0.0
-        bestBuy = arrBuy.max() ?? 0.0
-        avarage = (sumSell + sumBuy) / Double(filteredBanksArr.count * 2)
-        self.cityArray[index].bestBuyCost = bestBuy
-        self.cityArray[index].bestSellCost = bestSell
-        self.cityArray[index].bestAvarage = avarage
+        return (sumBuy, sumSell)
     }
     
-//    func refresh() {
-//    }
+    func sortBankByBuySell(banksArr: [BankModel], curr: String) -> (buy: [BankModel], sell: [BankModel]) {
+        var banksArrSell = [BankModel]()
+        var banksArrBuy = [BankModel]()
+        
+        banksArrSell = banksArr.sorted(by: {(bank0: BankModel, bank1: BankModel) -> Bool in
+            return (Double((bank0.currencies[curr]?.ask)!)! - Double((bank1.currencies[curr]?.ask)!)!) > 0
+        })
+
+        print("%%%%%%%%%%%%%%%%")
+        print(banksArrSell)
+        
+        for i in 0 ..< banksArr.count {
+            if let value = banksArr[i].currencies[curr] {
+                if let sumS = value.ask {
+                }
+                if let sumB = value.bid {
+                }
+            } else {
+                print("DEBUG: Current currency is nil! \nDEBUG: Bank \(banksArr[i].bankName) have this currency: \(banksArr[i].currencies)")
+            }
+        }
+        return (buy: banksArrBuy, sell: banksArrSell)
+    }
 }

@@ -38,10 +38,12 @@ class CitysListViewController: BaseViewController {
         let nibCell = UINib(nibName: citysCollectionViewCellId, bundle: nil)
         citysListCollectionsView.register(nibCell, forCellWithReuseIdentifier: citysCollectionViewCellId)
         
+//        cityController.loadJSONDataAndGetInfo(refresh: refresh)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        // FIXME: fix data duplicated
         cityController.loadJSONDataAndGetInfo(refresh: refresh)
     }
     
@@ -60,7 +62,6 @@ class CitysListViewController: BaseViewController {
 extension CitysListViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-//        return self.cityArray.count
         return cityController.cityArray.count
     }
     
@@ -94,6 +95,7 @@ extension CitysListViewController: UICollectionViewDataSource, UICollectionViewD
             banksListVC.cityController = cityController
             if let index = sender as? Int {
                 banksListVC.cityController.titleCity = cityController.cityArray[index].cityName
+                banksListVC.cityIndex = index
             }
             
         }

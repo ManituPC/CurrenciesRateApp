@@ -11,7 +11,5 @@ import Foundation
 
 class CityController: BaseModelController {
     var titleCity: String?
-    
-    func getBanksList(index: Int) {        
-    }
+    var cityIndex: Int?
 }
