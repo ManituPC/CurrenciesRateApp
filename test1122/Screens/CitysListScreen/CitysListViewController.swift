@@ -85,7 +85,6 @@ extension CitysListViewController: UICollectionViewDataSource, UICollectionViewD
         return 4
     }
     
-    //TODO: func didSelecte where use segue for open BanksList.storyboard
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         performSegue(withIdentifier: "segue", sender: indexPath.row)
     }
@@ -97,7 +96,6 @@ extension CitysListViewController: UICollectionViewDataSource, UICollectionViewD
                 banksListVC.cityController.titleCity = cityController.cityArray[index].cityName
                 banksListVC.cityIndex = index
             }
-            
         }
     }
 }

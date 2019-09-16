@@ -101,7 +101,7 @@ class BaseModelController: UserSettingsController {
                 if let cityId = self.cityDict.first(where: {$0.value == city.cityName})?.key{
                     let filtered = self.banksArray.filter({$0.cityId == cityId}) //banksArr for current city
                     self.cityArray[i].banksArr = filtered.map {$0.self} //write banks to id array
-                    print("DEBUG: banks in city \(self.cityArray[i].cityName): \(self.cityArray[i].banksArr?.count) and \(self.cityArray[i].banksArr?[0].bankName)")
+                    print("DEBUG: banks in city \(self.cityArray[i].cityName): \(self.cityArray[i].banksArr?.count)")
                     
                     //get avarage, best buy and sell
                     self.getAvarageBuySell(filteredBanksArr: filtered, curr: curr, index: i)
@@ -175,23 +175,19 @@ class BaseModelController: UserSettingsController {
         var banksArrSell = [BankModel]()
         var banksArrBuy = [BankModel]()
         
-        banksArrSell = banksArr.sorted(by: {(bank0: BankModel, bank1: BankModel) -> Bool in
+        let filtered = banksArr.filter({$0.currencies[curr] != nil})
+
+        banksArrSell = filtered.sorted(by: {(bank0: BankModel, bank1: BankModel) -> Bool in
             return (Double((bank0.currencies[curr]?.ask)!)! - Double((bank1.currencies[curr]?.ask)!)!) > 0
         })
-
+        
+        banksArrBuy = filtered.sorted(by: {(bank0: BankModel, bank1: BankModel) -> Bool in
+            return (Double((bank0.currencies[curr]?.bid)!)! - Double((bank1.currencies[curr]?.bid)!)!) > 0
+        })
+        
         print("%%%%%%%%%%%%%%%%")
         print(banksArrSell)
         
-        for i in 0 ..< banksArr.count {
-            if let value = banksArr[i].currencies[curr] {
-                if let sumS = value.ask {
-                }
-                if let sumB = value.bid {
-                }
-            } else {
-                print("DEBUG: Current currency is nil! \nDEBUG: Bank \(banksArr[i].bankName) have this currency: \(banksArr[i].currencies)")
-            }
-        }
         return (buy: banksArrBuy, sell: banksArrSell)
     }
 }

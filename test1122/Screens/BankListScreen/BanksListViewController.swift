@@ -14,6 +14,7 @@ class BanksListViewController: BaseViewController {
     let banksListTableViewCellId = "BanksListTableViewCell"
     var cityController = CityController()
     var cityIndex = 0
+    var status = 0
     
     @IBOutlet weak var banksListTableView: UITableView!
     
@@ -46,14 +47,18 @@ class BanksListViewController: BaseViewController {
     
     //for test
     @objc func sortBy() {
-        var tuple = cityController.sortBankByBuySell(banksArr: cityController.cityArray[cityIndex].banksArr ?? [], curr: userSettingsController.userSettings.selectedCurrency ?? "USD")
-    }
+        let tuple = cityController.sortBankByBuySell(banksArr: cityController.cityArray[cityIndex].banksArr ?? [], curr: userSettingsController.userSettings.selectedCurrency ?? "USD")
     
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        if let destinationVC: BankDetailsViewController = segue.destination as? BankDetailsViewController {
-//            destinationVC.bankController = bankController
-//        }
-//    }
+        if status == 0 {
+            status += 1
+            cityController.cityArray[cityIndex].banksArr = tuple.buy
+            refresh()
+        } else {
+            status -= 1
+            cityController.cityArray[cityIndex].banksArr = tuple.sell
+            refresh()
+        }
+    }
 }
 
 extension BanksListViewController: UITableViewDataSource, UITableViewDelegate {
@@ -73,15 +78,24 @@ extension BanksListViewController: UITableViewDataSource, UITableViewDelegate {
         return 100.0
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let name = "BankDetailsViewController"
-        let viewController = storyboard?.instantiateViewController(withIdentifier: name)
-        self.navigationController?.pushViewController(viewController!, animated: true)
-    }
-    
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let label = UILabel()
         label.text = "Average cost = \(String(format:"%.2f", cityController.cityArray[cityIndex].bestAvarage!))"
         return label
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "segue", sender: indexPath.row)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let destinationVC = segue.destination as? BankDetailsViewController {
+            destinationVC.cityController = cityController
+            destinationVC.cityIndex = cityIndex
+            if let index = sender as? Int {
+                destinationVC.cityController.titleBank = cityController.cityArray[cityIndex].banksArr?[index].bankName
+                destinationVC.bankIndex = index
+            }
+        }
     }
 }

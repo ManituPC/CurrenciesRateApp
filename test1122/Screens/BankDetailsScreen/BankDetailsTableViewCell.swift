@@ -24,13 +24,15 @@ class BankDetailsTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    var bankDetails: [(currency: String, cost:Double)] = [] {
+    var bankDetails: (String, CurrencyModel?)? {
         didSet {
-            for index in 0..<bankDetails.count {
-                currencyLabel.text = bankDetails[index].currency
-                //FIX: convert Optoional double to string
-                buySellLabel.text = "\(bankDetails[index].cost)"
-            }
+            let string = bankDetails?.0
+            currencyLabel.text = string
+            let strBid = bankDetails?.1?.bid ?? "0.0"
+            let strAsk = bankDetails?.1?.ask ?? "0.0"
+            let bid = Double(strBid)!
+            let ask = Double(strAsk)!
+            buySellLabel.text = "\(String(format: "%.2f", (bid))) / \(String(format: "%.2f", (ask)))"
         }
     }
 }

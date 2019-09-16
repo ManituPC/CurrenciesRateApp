@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CustomButton: UIButton {
+class CurrencyButton: UIButton {
 
     var isOn = false
     
@@ -29,7 +29,7 @@ class CustomButton: UIButton {
         
         setTitleColor(Colors.twitterBlue, for: .normal)
         checkStatus()
-        addTarget(self, action: #selector(CustomButton.buttonPressed), for: .touchUpInside)
+        addTarget(self, action: #selector(CurrencyButton.buttonPressed), for: .touchUpInside)
     }
     
     @objc func buttonPressed() {
