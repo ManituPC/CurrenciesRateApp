@@ -13,17 +13,9 @@ class BankDetailsViewController: BaseViewController {
     @IBOutlet weak var bankDetailsTVC: UITableView!
     
     let bankDetailsTableViewCellId = "BankDetailsTableViewCell"
-//    var bankController: BankController!
-    let itemBanksArray: [Bank] = {
-        var bank = Bank()
-        bank.bankCity = "ZPcity"
-        bank.bankName = "PUMB"
-        bank.bankAddress = "VotTutVot, 21b"
-        bank.bankBuy = 23.1
-        bank.bankSell = 29.9
-        bank.bankCurrency = [("USD", 23.2),("EUR", 30.0)]
-        return [bank]
-    }()
+    var cityController = CityController()
+    var cityIndex = 0
+    var bankIndex = 0
 
     
     override func viewDidLoad() {
@@ -34,22 +26,23 @@ class BankDetailsViewController: BaseViewController {
         bankDetailsTVC.register(nibCell, forCellReuseIdentifier: bankDetailsTableViewCellId)
         
         // navbar settings
-        self.navigationItem.title = itemBanksArray[0].bankName
-        self.navigationItem.leftBarButtonItem?.title = itemBanksArray[0].bankCity
-        
-        print("!!!!!!!!!!!!! \(itemBanksArray[0].bankCurrency![0].0) and \(itemBanksArray[0].bankCurrency![0].1)")
+        self.navigationItem.title = cityController.titleBank
+        self.navigationItem.leftBarButtonItem?.title = cityController.titleCity
     }
 }
 
 extension BankDetailsViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return itemBanksArray[0].bankCurrency!.count
+        return cityController.cityArray[cityIndex].banksArr?[bankIndex].currencies.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let itemCell = tableView.dequeueReusableCell(withIdentifier: bankDetailsTableViewCellId, for: indexPath) as! BankDetailsTableViewCell
-        itemCell.bankDetails = [(itemBanksArray[0].bankCurrency?[indexPath.row])!]
+        if let details = cityController.cityArray[cityIndex].banksArr?[bankIndex].currencies {
+            let key = details.keys.map{$0}[indexPath.row]
+            itemCell.bankDetails = (key, details[key])
+        }
         return itemCell
     }
     

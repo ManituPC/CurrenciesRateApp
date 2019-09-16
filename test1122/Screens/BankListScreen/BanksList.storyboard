@@ -51,7 +51,7 @@
                     <navigationItem key="navigationItem" id="OTo-hP-5gc"/>
                     <connections>
                         <outlet property="banksListTableView" destination="Pcj-aS-VQm" id="zdP-m0-X05"/>
-                        <segue destination="1i7-Qd-1TQ" kind="show" id="0yk-T1-Bta"/>
+                        <segue destination="1i7-Qd-1TQ" kind="show" identifier="segue" id="0yk-T1-Bta"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="B7N-j9-tEv" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -10,8 +10,8 @@ import UIKit
 
 class SelectCurrencyViewController: BaseViewController {
         
-    @IBOutlet weak var buttonUSD: CustomButton!
-    @IBOutlet weak var buttonEUR: CustomButton!
+    @IBOutlet weak var buttonUSD: CurrencyButton!
+    @IBOutlet weak var buttonEUR: CurrencyButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()

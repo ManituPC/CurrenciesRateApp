@@ -20,7 +20,7 @@
 		0047088E22EC481400DBDC5F /* BanksListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0047088D22EC481400DBDC5F /* BanksListViewController.swift */; };
 		0047089022EC4BAF00DBDC5F /* Bank.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0047088F22EC4BAF00DBDC5F /* Bank.swift */; };
 		007111B622DF6C850030317B /* SelectCurrencyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007111B522DF6C850030317B /* SelectCurrencyViewController.swift */; };
-		007111BE22DF71DD0030317B /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007111BD22DF71DD0030317B /* CustomButton.swift */; };
+		007111BE22DF71DD0030317B /* CurrencyButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007111BD22DF71DD0030317B /* CurrencyButton.swift */; };
 		007111C122DF733F0030317B /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007111C022DF733F0030317B /* Constants.swift */; };
 		007111C422DF77040030317B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 007111C622DF77040030317B /* Localizable.strings */; };
 		0091359522F584A900EA10F3 /* BankDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0091359422F584A900EA10F3 /* BankDetailsViewController.swift */; };
@@ -56,7 +56,7 @@
 		0047088D22EC481400DBDC5F /* BanksListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BanksListViewController.swift; sourceTree = "<group>"; };
 		0047088F22EC4BAF00DBDC5F /* Bank.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bank.swift; sourceTree = "<group>"; };
 		007111B522DF6C850030317B /* SelectCurrencyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectCurrencyViewController.swift; sourceTree = "<group>"; };
-		007111BD22DF71DD0030317B /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
+		007111BD22DF71DD0030317B /* CurrencyButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyButton.swift; sourceTree = "<group>"; };
 		007111C022DF733F0030317B /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		007111C522DF77040030317B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		0091359422F584A900EA10F3 /* BankDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankDetailsViewController.swift; sourceTree = "<group>"; };
@@ -157,7 +157,7 @@
 		007111BC22DF71A00030317B /* SubClasses */ = {
 			isa = PBXGroup;
 			children = (
-				007111BD22DF71DD0030317B /* CustomButton.swift */,
+				007111BD22DF71DD0030317B /* CurrencyButton.swift */,
 			);
 			path = SubClasses;
 			sourceTree = "<group>";
@@ -176,8 +176,8 @@
 			children = (
 				004700DF22FB216900645183 /* UserSettingsController.swift */,
 				003C4C632328FCBA0059E00F /* BaseModelController.swift */,
-				0091359722F8847900EA10F3 /* BankController.swift */,
 				003C4C652328FE880059E00F /* CityController.swift */,
+				0091359722F8847900EA10F3 /* BankController.swift */,
 			);
 			path = ModelController;
 			sourceTree = "<group>";
@@ -326,7 +326,7 @@
 				0047088E22EC481400DBDC5F /* BanksListViewController.swift in Sources */,
 				00C938B522D6296C00E7D7EB /* BanksListTableViewCell.swift in Sources */,
 				0091359522F584A900EA10F3 /* BankDetailsViewController.swift in Sources */,
-				007111BE22DF71DD0030317B /* CustomButton.swift in Sources */,
+				007111BE22DF71DD0030317B /* CurrencyButton.swift in Sources */,
 				009A8FCD23182F0E0010F444 /* BaseViewController.swift in Sources */,
 				00DC05D1231E8AC00095AD05 /* ResponseData.swift in Sources */,
 				007111C122DF733F0030317B /* Constants.swift in Sources */,

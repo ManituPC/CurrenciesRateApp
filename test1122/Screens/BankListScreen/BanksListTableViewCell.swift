@@ -17,32 +17,39 @@ class BanksListTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
     
-//    var bank: Bank? {
-//        didSet {
-//            bankName.text = bank?.bankName
-//            bankAddress.text = bank?.bankAddress
-//            //FIX: convert Optoional double to string
-//            bankBuy.text = "$ \(bank?.bankBuy)"
-//            bankSell.text = "$ \(bank?.bankSell)"
-//        }
-//    }
+    
+    var currency: String?
+    var buy = 0.0
+    var sell = 0.0
+    var symbol: String {
+        switch currency {
+        case "EUR":
+            return "€"
+        case "USD":
+            return "$"
+        default:
+            return " "
+        }
+    }
     
     var bank: BankModel? {
         didSet {
             bankName.text = bank?.bankName
             bankAddress.text = bank?.address
-            //FIX: convert Optoional double to string
-            bankBuy.text = "$ 25.15)"
-            bankSell.text = "$ 26.0)"
+            if let strBuy = bank?.currencies[currency!]?.bid {
+                buy = Double(strBuy) as! Double
+            }
+            bankBuy.text = "\(String(describing: symbol)) \(String(format:"%.2f", (buy)))"
+            if let strSell = bank?.currencies[currency!]?.ask {
+                sell = Double(strSell) as! Double
+            }
+            bankSell.text = "\(String(describing: symbol)) \(String(format:"%.2f", (sell)))"
         }
     }
 }
