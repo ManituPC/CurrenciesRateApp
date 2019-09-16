@@ -38,10 +38,12 @@ class CitysListViewController: BaseViewController {
         let nibCell = UINib(nibName: citysCollectionViewCellId, bundle: nil)
         citysListCollectionsView.register(nibCell, forCellWithReuseIdentifier: citysCollectionViewCellId)
         
+//        cityController.loadJSONDataAndGetInfo(refresh: refresh)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        // FIXME: fix data duplicated
         cityController.loadJSONDataAndGetInfo(refresh: refresh)
     }
     
@@ -60,7 +62,6 @@ class CitysListViewController: BaseViewController {
 extension CitysListViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-//        return self.cityArray.count
         return cityController.cityArray.count
     }
     
@@ -84,7 +85,6 @@ extension CitysListViewController: UICollectionViewDataSource, UICollectionViewD
         return 4
     }
     
-    //TODO: func didSelecte where use segue for open BanksList.storyboard
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         performSegue(withIdentifier: "segue", sender: indexPath.row)
     }
@@ -92,6 +92,10 @@ extension CitysListViewController: UICollectionViewDataSource, UICollectionViewD
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let banksListVC = segue.destination as? BanksListViewController {
             banksListVC.cityController = cityController
+            if let index = sender as? Int {
+                banksListVC.cityController.titleCity = cityController.cityArray[index].cityName
+                banksListVC.cityIndex = index
+            }
         }
     }
 }
