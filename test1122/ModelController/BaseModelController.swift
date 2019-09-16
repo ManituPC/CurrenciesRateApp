@@ -185,9 +185,6 @@ class BaseModelController: UserSettingsController {
             return (Double((bank0.currencies[curr]?.bid)!)! - Double((bank1.currencies[curr]?.bid)!)!) > 0
         })
         
-        print("%%%%%%%%%%%%%%%%")
-        print(banksArrSell)
-        
         return (buy: banksArrBuy, sell: banksArrSell)
     }
 }

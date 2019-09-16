@@ -45,7 +45,6 @@ class BanksListViewController: BaseViewController {
         }
     }
     
-    //for test
     @objc func sortBy() {
         let tuple = cityController.sortBankByBuySell(banksArr: cityController.cityArray[cityIndex].banksArr ?? [], curr: userSettingsController.userSettings.selectedCurrency ?? "USD")
     
