@@ -11,7 +11,6 @@
 		00279E5B22E8AFB300576F01 /* CitysListCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 00279E5922E8AFB300576F01 /* CitysListCollectionViewCell.xib */; };
 		00279E5D22E8B04800576F01 /* CitysListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00279E5C22E8B04800576F01 /* CitysListViewController.swift */; };
 		0029B79222E87B33004D2CE8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0029B79122E87B33004D2CE8 /* Main.storyboard */; };
-		002A74E4232BB16300C6A029 /* SortButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002A74E3232BB16300C6A029 /* SortButton.swift */; };
 		003C4C642328FCBA0059E00F /* BaseModelController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 003C4C632328FCBA0059E00F /* BaseModelController.swift */; };
 		003C4C662328FE880059E00F /* CityController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 003C4C652328FE880059E00F /* CityController.swift */; };
 		004700DE22FB1F6C00645183 /* UserSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 004700DD22FB1F6C00645183 /* UserSettings.swift */; };
@@ -48,7 +47,6 @@
 		00279E5922E8AFB300576F01 /* CitysListCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CitysListCollectionViewCell.xib; sourceTree = "<group>"; };
 		00279E5C22E8B04800576F01 /* CitysListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CitysListViewController.swift; sourceTree = "<group>"; };
 		0029B79122E87B33004D2CE8 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
-		002A74E3232BB16300C6A029 /* SortButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortButton.swift; sourceTree = "<group>"; };
 		003C4C632328FCBA0059E00F /* BaseModelController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseModelController.swift; sourceTree = "<group>"; };
 		003C4C652328FE880059E00F /* CityController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityController.swift; sourceTree = "<group>"; };
 		004700DD22FB1F6C00645183 /* UserSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettings.swift; sourceTree = "<group>"; };
@@ -160,7 +158,6 @@
 			isa = PBXGroup;
 			children = (
 				007111BD22DF71DD0030317B /* CurrencyButton.swift */,
-				002A74E3232BB16300C6A029 /* SortButton.swift */,
 			);
 			path = SubClasses;
 			sourceTree = "<group>";
@@ -332,7 +329,6 @@
 				007111BE22DF71DD0030317B /* CurrencyButton.swift in Sources */,
 				009A8FCD23182F0E0010F444 /* BaseViewController.swift in Sources */,
 				00DC05D1231E8AC00095AD05 /* ResponseData.swift in Sources */,
-				002A74E4232BB16300C6A029 /* SortButton.swift in Sources */,
 				007111C122DF733F0030317B /* Constants.swift in Sources */,
 				004700E022FB216900645183 /* UserSettingsController.swift in Sources */,
 				009CF8DF22D9D074006BBA91 /* BankDetailsTableViewCell.swift in Sources */,
