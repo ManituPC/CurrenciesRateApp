@@ -178,7 +178,7 @@ class BaseModelController: UserSettingsController {
         let filtered = banksArr.filter({$0.currencies[curr] != nil})
 
         banksArrSell = filtered.sorted(by: {(bank0: BankModel, bank1: BankModel) -> Bool in
-            return (Double((bank0.currencies[curr]?.ask)!)! - Double((bank1.currencies[curr]?.ask)!)!) > 0
+            return (Double((bank0.currencies[curr]?.ask)!)! - Double((bank1.currencies[curr]?.ask)!)!) < 0
         })
         
         banksArrBuy = filtered.sorted(by: {(bank0: BankModel, bank1: BankModel) -> Bool in

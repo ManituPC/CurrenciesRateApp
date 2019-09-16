@@ -69,8 +69,9 @@ extension BanksListViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let itemCell = tableView.dequeueReusableCell(withIdentifier: banksListTableViewCellId, for: indexPath) as! BanksListTableViewCell
+        let bank = cityController.cityArray[cityIndex].banksArr?[indexPath.row]
         itemCell.currency = userSettingsController.userSettings.selectedCurrency
-        itemCell.bank = cityController.cityArray[cityIndex].banksArr?[indexPath.row]
+        itemCell.bank = bank
         return itemCell
     }
     
