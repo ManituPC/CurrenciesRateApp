@@ -11,11 +11,11 @@
 "eur" = "EUR";
 
 // cities list
-"title_cities_list" = "Cities";
-"change_currency" = "Chenge currency";
-"best_buy" = "Best buy";
-"best_sell" = "Best sell";
+"title_cities_list" = "Города";
+"change_currency" = "Изменить валюту";
+"best_buy" = "Лушая покупка";
+"best_sell" = "Лучшая продажа";
 
 // banks list
-"sort_by" = "Sort by buy/sell";
-"average_cost" = "Average cost";
+"sort_by" = "Сортировка по покупке/продаже";
+"average_cost" = "Средняя цена";
