@@ -27,8 +27,8 @@ class BanksListViewController: BaseViewController {
         
         // NavBar settings
         self.navigationItem.title = cityController.titleCity
-        self.navigationItem.leftBarButtonItem?.title = "Cities"
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Sort by buy/sell", style: .plain, target: self, action: #selector(sortBy))
+        self.navigationItem.leftBarButtonItem?.title = NSLocalizedString("title_cities_list", comment: "")
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: NSLocalizedString("sort_by", comment: ""), style: .plain, target: self, action: #selector(sortBy))
         
         // create cell in tableView
         let nibCell = UINib(nibName: banksListTableViewCellId, bundle: nil)
@@ -80,7 +80,7 @@ extension BanksListViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let label = UILabel()
-        label.text = "Average cost = \(String(format:"%.2f", cityController.cityArray[cityIndex].bestAvarage!))"
+        label.text = "\(NSLocalizedString("average_cost", comment: "")) = \(String(format:"%.2f", cityController.cityArray[cityIndex].bestAvarage!))"
         return label
     }
     

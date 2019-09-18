@@ -25,8 +25,8 @@ class CitysListViewController: BaseViewController {
         
         // NavBar settings
         // TODO: move to separate controller ???
-        self.navigationItem.title = "Cities"
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Change currency", style: .plain, target: self, action: #selector(clickChangeCurrency))
+        self.navigationItem.title = NSLocalizedString("title_cities_list", comment: "")
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: NSLocalizedString("change_currency", comment: ""), style: .plain, target: self, action: #selector(clickChangeCurrency))
         
         // create cell in collectionView
         let nibCell = UINib(nibName: citysCollectionViewCellId, bundle: nil)
