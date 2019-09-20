@@ -29,6 +29,8 @@ class BanksListViewController: BaseViewController {
         self.navigationItem.title = cityController.titleCity
         self.navigationItem.leftBarButtonItem?.title = Localizable.CityList.titleCitiesList.localized
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: Localizable.BankList.sortBy.localized, style: .plain, target: self, action: #selector(sortBy))
+        // TODO: add 2 lines to this button
+        self.navigationItem.rightBarButtonItem?.setTitleTextAttributes([NSAttributedString.Key.font: UIFont(name: "Chalkduster", size: 10)!], for: UIControl.State.normal)
         
         // create cell in tableView
         let nibCell = UINib(nibName: banksListTableViewCellId, bundle: nil)
