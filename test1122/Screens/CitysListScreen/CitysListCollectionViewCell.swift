@@ -25,8 +25,8 @@ class CitysListCollectionViewCell: UICollectionViewCell {
             cityImage.image = UIImage(named: "cityZ")
             cityNameLabel.text = city?.cityName
             monthAndCurrencyLabel.text = "\(String(describing: (city?.monthName)!))  \(String(format:"%.2f", (city?.bestAvarage)!))"
-            bestBuyLabel.text = "\(NSLocalizedString("best_buy", comment: "")) \n\(String(format:"%.2f", (city?.bestBuyCost)!))"
-            bestSellLabel.text = "\(NSLocalizedString("best_sell", comment: "")) \n\(String(format:"%.2f", (city?.bestSellCost)!))"
+            bestBuyLabel.text = "\(Localizable.CityList.bestBuy.localized) \n\(String(format:"%.2f", (city?.bestBuyCost)!))"
+            bestSellLabel.text = "\(Localizable.CityList.bestSell.localized) \n\(String(format:"%.2f", (city?.bestSellCost)!))"
         }
     }
 }

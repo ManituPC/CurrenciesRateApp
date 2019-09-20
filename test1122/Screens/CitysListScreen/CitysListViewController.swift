@@ -25,8 +25,8 @@ class CitysListViewController: BaseViewController {
         
         // NavBar settings
         // TODO: move to separate controller ???
-        self.navigationItem.title = NSLocalizedString("title_cities_list", comment: "")
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: NSLocalizedString("change_currency", comment: ""), style: .plain, target: self, action: #selector(clickChangeCurrency))
+        self.navigationItem.title = Localizable.CityList.titleCitiesList.localized
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: Localizable.CityList.changeCurrency.localized, style: .plain, target: self, action: #selector(clickChangeCurrency))
         
         // create cell in collectionView
         let nibCell = UINib(nibName: citysCollectionViewCellId, bundle: nil)
@@ -35,7 +35,6 @@ class CitysListViewController: BaseViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        // FIXME: fix data duplicated
         cityController.loadJSONDataAndGetInfo(refresh: refresh)
     }
     
@@ -45,7 +44,7 @@ class CitysListViewController: BaseViewController {
         }
     }
     
-    // Navigat to Currency screen
+    // Navigate to Currency screen
     @objc func clickChangeCurrency() {
         showScreen(name: "SelectCurrencyNav")
     }

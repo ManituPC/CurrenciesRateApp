@@ -11,11 +11,11 @@
 "eur" = "EUR";
 
 // cities list
-"title_cities_list" = "Міста";
-"change_currency" = "Змінити валюту";
-"best_buy" = "Краща купівля";
-"best_sell" = "Кращій продаж";
+"titleCitiesList" = "Міста";
+"changeCurrency" = "Змінити валюту";
+"bestBuy" = "Краща купівля";
+"bestSell" = "Кращій продаж";
 
 // banks list
-"sort_by" = "Сортувати по купівлі/продажу";
-"average_cost" = "Середня ціна";
+"sortBy" = "Сортувати за купле/продажем";
+"averageCost" = "Середня ціна";

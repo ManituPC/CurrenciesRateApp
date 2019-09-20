@@ -16,8 +16,8 @@ class SelectCurrencyViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        buttonUSD.setTitle(NSLocalizedString("usd", comment: ""), for: .normal)
-        buttonEUR.setTitle(NSLocalizedString("eur", comment: ""), for: .normal)
+        buttonUSD.setTitle(Localizable.Common.usd.localized, for: .normal)
+        buttonEUR.setTitle(Localizable.Common.eur.localized, for: .normal)
     }
     
     @IBAction func onClickUSD(_ sender: UIButton) {

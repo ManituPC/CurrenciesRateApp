@@ -11,11 +11,11 @@
 "eur" = "EUR";
 
 // cities list
-"title_cities_list" = "Cities";
-"change_currency" = "Change currency";
-"best_buy" = "Best buy";
-"best_sell" = "Best sell";
+"titleCitiesList" = "Cities";
+"changeCurrency" = "Change currency";
+"bestBuy" = "Best buy";
+"bestSell" = "Best sell";
 
 // banks list
-"sort_by" = "Sort by buy/sell";
-"average_cost" = "Average cost";
+"sortBy" = "Sort by buy/sell";
+"averageCost" = "Average cost";
