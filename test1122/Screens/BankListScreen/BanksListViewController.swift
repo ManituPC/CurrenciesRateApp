@@ -25,11 +25,7 @@ class BanksListViewController: BaseViewController {
         banksListTableView.dataSource = self
         banksListTableView.delegate = self
         
-        // NavBar settings
-        self.navigationItem.title = cityController.titleCity
-        self.navigationItem.leftBarButtonItem?.title = Localizable.CityList.titleCitiesList.localized
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: Localizable.BankList.sortBy.localized, style: .plain, target: self, action: #selector(sortBy))
-        // TODO: add 2 lines to this button
+        setNavigationBar()
         
         // create cell in tableView
         let nibCell = UINib(nibName: banksListTableViewCellId, bundle: nil)
@@ -46,7 +42,21 @@ class BanksListViewController: BaseViewController {
         }
     }
     
-    @objc func sortBy() {
+    // NavBar settings
+    private func setNavigationBar() {
+        self.navigationItem.title = cityController.titleCity
+        
+        self.navigationItem.leftBarButtonItem?.title = Localizable.CityList.titleCitiesList.localized
+        
+        let button = UIButton(type: .custom)
+        button.titleLabel?.numberOfLines = 2
+        button.setTitle(Localizable.BankList.sortBy.localized, for: .normal)
+        button.setTitleColor(UIColor.systemBlue, for: .normal)
+        button.addTarget(self, action: #selector(clickSortBy), for: .touchUpInside)
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: button)
+    }
+    
+    @objc func clickSortBy() {
         let tuple = cityController.sortBankByBuySell(banksArr: cityController.cityArray[cityIndex].banksArr ?? [], curr: userSettingsController.userSettings.selectedCurrency ?? "USD")
     
         if status == 0 {
