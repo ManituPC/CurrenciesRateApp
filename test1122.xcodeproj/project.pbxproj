@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0011B1F1233BA25C00F218CA /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0011B1F0233BA25C00F218CA /* Storyboard.storyboard */; };
 		00277C3E232FE8D8006355FA /* BaseHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00277C3D232FE8D8006355FA /* BaseHelper.swift */; };
 		00279E5A22E8AFB300576F01 /* CitysListCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00279E5822E8AFB300576F01 /* CitysListCollectionViewCell.swift */; };
 		00279E5B22E8AFB300576F01 /* CitysListCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 00279E5922E8AFB300576F01 /* CitysListCollectionViewCell.xib */; };
@@ -47,6 +48,7 @@
 /* Begin PBXFileReference section */
 		0000BC032330B69000529D81 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/Localizable.strings; sourceTree = "<group>"; };
 		0000BC042330B6A500529D81 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
+		0011B1F0233BA25C00F218CA /* Storyboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Storyboard.storyboard; sourceTree = "<group>"; };
 		00277C3D232FE8D8006355FA /* BaseHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseHelper.swift; sourceTree = "<group>"; };
 		00277C452330B34E006355FA /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/SelectCurrency.strings; sourceTree = "<group>"; };
 		00277C462330B34E006355FA /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
@@ -106,6 +108,7 @@
 			children = (
 				00277C3D232FE8D8006355FA /* BaseHelper.swift */,
 				004DD5372334DDC700D6A5B3 /* Localizable.swift */,
+				0011B1F0233BA25C00F218CA /* Storyboard.storyboard */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -325,6 +328,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0047088C22EC47D900DBDC5F /* BanksList.storyboard in Resources */,
+				0011B1F1233BA25C00F218CA /* Storyboard.storyboard in Resources */,
 				00C63B7E22F345D80079DBA7 /* BankDetails.storyboard in Resources */,
 				00C938AC22D6128700E7D7EB /* LaunchScreen.storyboard in Resources */,
 				007111C422DF77040030317B /* Localizable.strings in Resources */,

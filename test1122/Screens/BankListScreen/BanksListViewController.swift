@@ -49,8 +49,11 @@ class BanksListViewController: BaseViewController {
         self.navigationItem.leftBarButtonItem?.title = Localizable.CityList.titleCitiesList.localized
         
         let button = UIButton(type: .custom)
-        button.titleLabel?.numberOfLines = 2
         button.setTitle(Localizable.BankList.sortBy.localized, for: .normal)
+        if Locale.current.languageCode != "en" {
+            button.titleLabel?.numberOfLines = 0
+            button.titleLabel?.font = .systemFont(ofSize: 12)
+        }
         button.setTitleColor(UIColor.systemBlue, for: .normal)
         button.addTarget(self, action: #selector(clickSortBy), for: .touchUpInside)
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: button)
@@ -91,6 +94,7 @@ extension BanksListViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let label = UILabel()
+        label.backgroundColor = .lightGray
         label.text = "\(Localizable.BankList.averageCost.localized) = \(String(format:"%.2f", cityController.cityArray[cityIndex].bestAvarage!))"
         return label
     }
