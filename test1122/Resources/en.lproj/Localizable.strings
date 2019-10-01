@@ -6,5 +6,16 @@
   Copyright © 2019 LearnAppMaking. All rights reserved.
 */
 
+// currency name
 "usd" = "USD";
 "eur" = "EUR";
+
+// cities list
+"titleCitiesList" = "Cities";
+"changeCurrency" = "Change currency";
+"bestBuy" = "Best buy";
+"bestSell" = "Best sell";
+
+// banks list
+"sortBy" = "Sort by buy/sell";
+"averageCost" = "Average cost";

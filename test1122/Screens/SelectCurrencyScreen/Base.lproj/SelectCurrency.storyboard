@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_1" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -15,11 +13,11 @@
             <objects>
                 <viewController storyboardIdentifier="SelectCurrency" id="kGG-uB-M99" customClass="SelectCurrencyViewController" customModule="test1122" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Sss-bc-2sC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="owU-UI-1TA" customClass="CurrencyButton" customModule="test1122" customModuleProvider="target">
-                                <rect key="frame" x="107" y="368" width="200" height="30"/>
+                                <rect key="frame" x="122" y="225" width="130" height="30"/>
                                 <state key="normal" title="USD">
                                     <color key="titleShadowColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
@@ -28,7 +26,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AVS-M9-MRH" customClass="CurrencyButton" customModule="test1122" customModuleProvider="target">
-                                <rect key="frame" x="107" y="498" width="200" height="30"/>
+                                <rect key="frame" x="122" y="411" width="130" height="30"/>
                                 <state key="normal" title="EUR"/>
                                 <connections>
                                     <action selector="onClickEUR:" destination="kGG-uB-M99" eventType="touchUpInside" id="S25-uC-QX7"/>
@@ -37,12 +35,14 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="byq-6d-U6S" firstAttribute="trailing" secondItem="AVS-M9-MRH" secondAttribute="trailing" constant="107" id="3gG-p9-KGk"/>
-                            <constraint firstItem="owU-UI-1TA" firstAttribute="top" secondItem="byq-6d-U6S" secondAttribute="top" constant="280" id="3hE-qI-pDz"/>
-                            <constraint firstItem="owU-UI-1TA" firstAttribute="leading" secondItem="byq-6d-U6S" secondAttribute="leading" constant="107" id="6mI-FR-3YX"/>
-                            <constraint firstItem="AVS-M9-MRH" firstAttribute="leading" secondItem="byq-6d-U6S" secondAttribute="leading" constant="107" id="L5P-La-8ic"/>
-                            <constraint firstItem="byq-6d-U6S" firstAttribute="trailing" secondItem="owU-UI-1TA" secondAttribute="trailing" constant="107" id="Vbb-Er-KOx"/>
-                            <constraint firstItem="AVS-M9-MRH" firstAttribute="top" secondItem="owU-UI-1TA" secondAttribute="bottom" constant="100" id="XJj-jP-oS7"/>
+                            <constraint firstItem="byq-6d-U6S" firstAttribute="bottom" secondItem="AVS-M9-MRH" secondAttribute="bottom" constant="226" id="1Lx-yN-Em2"/>
+                            <constraint firstItem="AVS-M9-MRH" firstAttribute="height" secondItem="owU-UI-1TA" secondAttribute="height" id="6hA-NM-32J"/>
+                            <constraint firstItem="AVS-M9-MRH" firstAttribute="width" secondItem="owU-UI-1TA" secondAttribute="width" id="6uu-fk-fIr"/>
+                            <constraint firstItem="owU-UI-1TA" firstAttribute="leading" secondItem="byq-6d-U6S" secondAttribute="leading" constant="122" id="86V-8o-Eoo"/>
+                            <constraint firstItem="owU-UI-1TA" firstAttribute="top" secondItem="byq-6d-U6S" secondAttribute="top" constant="181" id="YW2-aM-hGr"/>
+                            <constraint firstItem="byq-6d-U6S" firstAttribute="trailing" secondItem="AVS-M9-MRH" secondAttribute="trailing" constant="123" id="bGC-9R-sO5"/>
+                            <constraint firstItem="byq-6d-U6S" firstAttribute="trailing" secondItem="owU-UI-1TA" secondAttribute="trailing" constant="123" id="ecS-cW-FAt"/>
+                            <constraint firstItem="AVS-M9-MRH" firstAttribute="leading" secondItem="byq-6d-U6S" secondAttribute="leading" constant="122" id="pU5-tO-7fX"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="byq-6d-U6S"/>
                     </view>
@@ -54,7 +54,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5KM-Vv-uOV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="218.84057971014494" y="118.52678571428571"/>
+            <point key="canvasLocation" x="218.40000000000001" y="118.29085457271366"/>
         </scene>
         <!--Main-->
         <scene sceneID="lS6-d8-0Ja">
@@ -70,7 +70,7 @@
                 <navigationController storyboardIdentifier="SelectCurrencyNav" automaticallyAdjustsScrollViewInsets="NO" id="bRM-ns-gCR" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="cAb-b3-9ep">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>

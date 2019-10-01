@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0011B1F1233BA25C00F218CA /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0011B1F0233BA25C00F218CA /* Storyboard.storyboard */; };
+		00277C3E232FE8D8006355FA /* BaseHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00277C3D232FE8D8006355FA /* BaseHelper.swift */; };
 		00279E5A22E8AFB300576F01 /* CitysListCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00279E5822E8AFB300576F01 /* CitysListCollectionViewCell.swift */; };
 		00279E5B22E8AFB300576F01 /* CitysListCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 00279E5922E8AFB300576F01 /* CitysListCollectionViewCell.xib */; };
 		00279E5D22E8B04800576F01 /* CitysListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00279E5C22E8B04800576F01 /* CitysListViewController.swift */; };
@@ -19,6 +21,7 @@
 		0047088C22EC47D900DBDC5F /* BanksList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0047088B22EC47D900DBDC5F /* BanksList.storyboard */; };
 		0047088E22EC481400DBDC5F /* BanksListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0047088D22EC481400DBDC5F /* BanksListViewController.swift */; };
 		0047089022EC4BAF00DBDC5F /* Bank.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0047088F22EC4BAF00DBDC5F /* Bank.swift */; };
+		004DD5382334DDC700D6A5B3 /* Localizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 004DD5372334DDC700D6A5B3 /* Localizable.swift */; };
 		007111B622DF6C850030317B /* SelectCurrencyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007111B522DF6C850030317B /* SelectCurrencyViewController.swift */; };
 		007111BE22DF71DD0030317B /* CurrencyButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007111BD22DF71DD0030317B /* CurrencyButton.swift */; };
 		007111C122DF733F0030317B /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007111C022DF733F0030317B /* Constants.swift */; };
@@ -43,6 +46,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0000BC032330B69000529D81 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/Localizable.strings; sourceTree = "<group>"; };
+		0000BC042330B6A500529D81 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
+		0011B1F0233BA25C00F218CA /* Storyboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Storyboard.storyboard; sourceTree = "<group>"; };
+		00277C3D232FE8D8006355FA /* BaseHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseHelper.swift; sourceTree = "<group>"; };
+		00277C452330B34E006355FA /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/SelectCurrency.strings; sourceTree = "<group>"; };
+		00277C462330B34E006355FA /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		00277C472330B362006355FA /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/SelectCurrency.strings; sourceTree = "<group>"; };
+		00277C482330B362006355FA /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		00279E5822E8AFB300576F01 /* CitysListCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CitysListCollectionViewCell.swift; sourceTree = "<group>"; };
 		00279E5922E8AFB300576F01 /* CitysListCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CitysListCollectionViewCell.xib; sourceTree = "<group>"; };
 		00279E5C22E8B04800576F01 /* CitysListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CitysListViewController.swift; sourceTree = "<group>"; };
@@ -55,6 +66,7 @@
 		0047088B22EC47D900DBDC5F /* BanksList.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = BanksList.storyboard; sourceTree = "<group>"; };
 		0047088D22EC481400DBDC5F /* BanksListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BanksListViewController.swift; sourceTree = "<group>"; };
 		0047088F22EC4BAF00DBDC5F /* Bank.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bank.swift; sourceTree = "<group>"; };
+		004DD5372334DDC700D6A5B3 /* Localizable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localizable.swift; sourceTree = "<group>"; };
 		007111B522DF6C850030317B /* SelectCurrencyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectCurrencyViewController.swift; sourceTree = "<group>"; };
 		007111BD22DF71DD0030317B /* CurrencyButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyButton.swift; sourceTree = "<group>"; };
 		007111C022DF733F0030317B /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -91,6 +103,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		00277C3C232FE894006355FA /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				00277C3D232FE8D8006355FA /* BaseHelper.swift */,
+				004DD5372334DDC700D6A5B3 /* Localizable.swift */,
+				0011B1F0233BA25C00F218CA /* Storyboard.storyboard */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
 		0029B78A22E8784D004D2CE8 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
@@ -210,8 +232,9 @@
 		00C938A022D6128500E7D7EB /* test1122 */ = {
 			isa = PBXGroup;
 			children = (
-				00DB39DC231CF13E0019587D /* APIController */,
+				00277C3C232FE894006355FA /* Helper */,
 				007111BF22DF72BF0030317B /* Resources */,
+				00DB39DC231CF13E0019587D /* APIController */,
 				0029B78F22E87908004D2CE8 /* Models */,
 				0091359622F8844700EA10F3 /* ModelController */,
 				009A8FCB23182ED80010F444 /* Routing */,
@@ -281,11 +304,13 @@
 			};
 			buildConfigurationList = 00C9389922D6128500E7D7EB /* Build configuration list for PBXProject "test1122" */;
 			compatibilityVersion = "Xcode 9.3";
-			developmentRegion = en;
+			developmentRegion = uk;
 			hasScannedForEncodings = 0;
 			knownRegions = (
-				en,
+				uk,
 				Base,
+				ru,
+				en,
 			);
 			mainGroup = 00C9389522D6128500E7D7EB;
 			productRefGroup = 00C9389F22D6128500E7D7EB /* Products */;
@@ -303,6 +328,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0047088C22EC47D900DBDC5F /* BanksList.storyboard in Resources */,
+				0011B1F1233BA25C00F218CA /* Storyboard.storyboard in Resources */,
 				00C63B7E22F345D80079DBA7 /* BankDetails.storyboard in Resources */,
 				00C938AC22D6128700E7D7EB /* LaunchScreen.storyboard in Resources */,
 				007111C422DF77040030317B /* Localizable.strings in Resources */,
@@ -329,6 +355,7 @@
 				007111BE22DF71DD0030317B /* CurrencyButton.swift in Sources */,
 				009A8FCD23182F0E0010F444 /* BaseViewController.swift in Sources */,
 				00DC05D1231E8AC00095AD05 /* ResponseData.swift in Sources */,
+				004DD5382334DDC700D6A5B3 /* Localizable.swift in Sources */,
 				007111C122DF733F0030317B /* Constants.swift in Sources */,
 				004700E022FB216900645183 /* UserSettingsController.swift in Sources */,
 				009CF8DF22D9D074006BBA91 /* BankDetailsTableViewCell.swift in Sources */,
@@ -336,6 +363,7 @@
 				00DC05D3231EB2090095AD05 /* BankModel.swift in Sources */,
 				00DC05D5231EC1740095AD05 /* CurrencyModel.swift in Sources */,
 				0047088A22E8B81000DBDC5F /* City.swift in Sources */,
+				00277C3E232FE8D8006355FA /* BaseHelper.swift in Sources */,
 				0091359822F8847900EA10F3 /* BankController.swift in Sources */,
 				00DB39DE231CF2B50019587D /* APIManager.swift in Sources */,
 				00279E5A22E8AFB300576F01 /* CitysListCollectionViewCell.swift in Sources */,
@@ -355,6 +383,8 @@
 			isa = PBXVariantGroup;
 			children = (
 				007111C522DF77040030317B /* en */,
+				0000BC032330B69000529D81 /* uk */,
+				0000BC042330B6A500529D81 /* ru */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
@@ -363,6 +393,8 @@
 			isa = PBXVariantGroup;
 			children = (
 				00C938A622D6128500E7D7EB /* Base */,
+				00277C452330B34E006355FA /* ru */,
+				00277C472330B362006355FA /* uk */,
 			);
 			name = SelectCurrency.storyboard;
 			sourceTree = "<group>";
@@ -371,6 +403,8 @@
 			isa = PBXVariantGroup;
 			children = (
 				00C938AB22D6128700E7D7EB /* Base */,
+				00277C462330B34E006355FA /* ru */,
+				00277C482330B362006355FA /* uk */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -382,6 +416,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -443,6 +478,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -501,6 +537,7 @@
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = test1122/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -520,6 +557,7 @@
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = test1122/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

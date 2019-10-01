@@ -18,12 +18,6 @@ class CitysListViewController: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        //debug
-        let viewC = self.navigationController?.viewControllers
-        for view in viewC! {
-            print(view)
-        }
                 
         // TODO: need more details about this
         citysListCollectionsView.dataSource = self
@@ -31,19 +25,16 @@ class CitysListViewController: BaseViewController {
         
         // NavBar settings
         // TODO: move to separate controller ???
-        self.navigationItem.title = "Cities"
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Change currency", style: .plain, target: self, action: #selector(clickChangeCurrency))
+        self.navigationItem.title = Localizable.CityList.titleCitiesList.localized
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: Localizable.CityList.changeCurrency.localized, style: .plain, target: self, action: #selector(clickChangeCurrency))
         
         // create cell in collectionView
         let nibCell = UINib(nibName: citysCollectionViewCellId, bundle: nil)
         citysListCollectionsView.register(nibCell, forCellWithReuseIdentifier: citysCollectionViewCellId)
-        
-//        cityController.loadJSONDataAndGetInfo(refresh: refresh)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        // FIXME: fix data duplicated
         cityController.loadJSONDataAndGetInfo(refresh: refresh)
     }
     
@@ -53,7 +44,7 @@ class CitysListViewController: BaseViewController {
         }
     }
     
-    // Navigat to Currency screen
+    // Navigate to Currency screen
     @objc func clickChangeCurrency() {
         showScreen(name: "SelectCurrencyNav")
     }

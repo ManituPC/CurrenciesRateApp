@@ -25,10 +25,7 @@ class BanksListViewController: BaseViewController {
         banksListTableView.dataSource = self
         banksListTableView.delegate = self
         
-        // NavBar settings
-        self.navigationItem.title = cityController.titleCity
-        self.navigationItem.leftBarButtonItem?.title = "Cities"
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Sort by buy/sell", style: .plain, target: self, action: #selector(sortBy))
+        setNavigationBar()
         
         // create cell in tableView
         let nibCell = UINib(nibName: banksListTableViewCellId, bundle: nil)
@@ -45,8 +42,24 @@ class BanksListViewController: BaseViewController {
         }
     }
     
-    //for test
-    @objc func sortBy() {
+    // NavBar settings
+    private func setNavigationBar() {
+        self.navigationItem.title = cityController.titleCity
+        
+        self.navigationItem.leftBarButtonItem?.title = Localizable.CityList.titleCitiesList.localized
+        
+        let button = UIButton(type: .custom)
+        button.setTitle(Localizable.BankList.sortBy.localized, for: .normal)
+        if Locale.current.languageCode != "en" {
+            button.titleLabel?.numberOfLines = 0
+            button.titleLabel?.font = .systemFont(ofSize: 12)
+        }
+        button.setTitleColor(UIColor.systemBlue, for: .normal)
+        button.addTarget(self, action: #selector(clickSortBy), for: .touchUpInside)
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: button)
+    }
+    
+    @objc func clickSortBy() {
         let tuple = cityController.sortBankByBuySell(banksArr: cityController.cityArray[cityIndex].banksArr ?? [], curr: userSettingsController.userSettings.selectedCurrency ?? "USD")
     
         if status == 0 {
@@ -81,7 +94,8 @@ extension BanksListViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let label = UILabel()
-        label.text = "Average cost = \(String(format:"%.2f", cityController.cityArray[cityIndex].bestAvarage!))"
+        label.backgroundColor = .lightGray
+        label.text = "\(Localizable.BankList.averageCost.localized) = \(String(format:"%.2f", cityController.cityArray[cityIndex].bestAvarage!))"
         return label
     }
     

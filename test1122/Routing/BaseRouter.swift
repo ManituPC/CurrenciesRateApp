@@ -26,8 +26,7 @@ enum Storyboard: StoryboardRouter {
     
     case SelectCurrency
     case CityList
-//    case BanksList
-//    case BankDetails
+    
     
     var name: String {
         switch self {

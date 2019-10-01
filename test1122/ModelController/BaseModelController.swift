@@ -12,6 +12,7 @@ import UIKit
 
 class BaseModelController: UserSettingsController {
     
+    let baseHelper = BaseHelper()
     var userSettingsController = UserSettingsController()
     let api = APIManager()
     var jsonData: ResponseData?
@@ -79,16 +80,9 @@ class BaseModelController: UserSettingsController {
     // MARK: Get date
     func getDate(jsonDataResponse: ResponseData?) {
         if let date = jsonDataResponse?.date {
-            let dateFormatter = DateFormatter()
-            dateFormatter.locale = Locale(identifier: "en_US_POSIX")
-            dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
-            let newDate = dateFormatter.date(from: date)!
-            dateFormatter.dateFormat = "MMM"
-            let dateString = dateFormatter.string(from: newDate)
-            print("DEBUG: date is: \(dateString)")
-            
+            let monthStr = baseHelper.getMonth(date: date)
             for i in 0...self.cityArray.count - 1 {
-                self.cityArray[i].monthName = dateString
+                self.cityArray[i].monthName = monthStr
             }
         }
     }
@@ -184,9 +178,6 @@ class BaseModelController: UserSettingsController {
         banksArrBuy = filtered.sorted(by: {(bank0: BankModel, bank1: BankModel) -> Bool in
             return (Double((bank0.currencies[curr]?.bid)!)! - Double((bank1.currencies[curr]?.bid)!)!) > 0
         })
-        
-        print("%%%%%%%%%%%%%%%%")
-        print(banksArrSell)
         
         return (buy: banksArrBuy, sell: banksArrSell)
     }

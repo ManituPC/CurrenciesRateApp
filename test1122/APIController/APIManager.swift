@@ -27,12 +27,14 @@ class APIManager {
             }
 
             // successful
-            do {
-                let jsonData = try JSONDecoder().decode(ResponseData.self, from: data!)
-                completion(.success(jsonData))
-            } catch let jsonError {
-                print("ups: ", jsonError)
-                completion(.failure(jsonError))
+            if let data = data {
+                do {
+                    let jsonData = try JSONDecoder().decode(ResponseData.self, from: data)
+                    completion(.success(jsonData))
+                } catch let jsonError {
+                    print("ups: ", jsonError)
+                    completion(.failure(jsonError))
+                }
             }
         }.resume()
     }

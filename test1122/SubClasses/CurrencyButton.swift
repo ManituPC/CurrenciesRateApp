@@ -40,10 +40,8 @@ class CurrencyButton: UIButton {
         isOn = bool
         
         let color = bool ? Colors.twitterBlue : .clear
-        //let title = bool ? "Following" : "Follow" // this for experience
         let titleColor = bool ? .white : Colors.twitterBlue
         
-        //setTitle(title, for: .normal)
         setTitleColor(titleColor, for: .normal)
         backgroundColor = color
     }

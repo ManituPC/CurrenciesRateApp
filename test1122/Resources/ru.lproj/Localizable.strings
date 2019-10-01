@@ -1,0 +1,21 @@
+/* 
+  Localizable.strings
+  test1122
+
+  Created by denis.chicherin on 7/17/19.
+  Copyright © 2019 LearnAppMaking. All rights reserved.
+*/
+
+// currency name
+"usd" = "USD";
+"eur" = "EUR";
+
+// cities list
+"titleCitiesList" = "Города";
+"changeCurrency" = "Изменить валюту";
+"bestBuy" = "Лушая покупка";
+"bestSell" = "Лучшая продажа";
+
+// banks list
+"sortBy" = "Сортировать по\nкупле/продаже";
+"averageCost" = "Средняя цена";

@@ -16,17 +16,22 @@ class CitysListCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var bestBuyLabel: UILabel!
     @IBOutlet weak var bestSellLabel: UILabel!
     
+    let image = UIImage(named: "cityZ")
+
+    
     override func awakeFromNib() {
         super.awakeFromNib()
     }
     
     var city: City? {
         didSet {
-            cityImage.image = UIImage(named: "cityZ")
+            cityImage.image = image
             cityNameLabel.text = city?.cityName
-            monthAndCurrencyLabel.text = "\(String(describing: (city?.monthName)!))  \(String(format:"%.2f", (city?.bestAvarage)!))"
-            bestBuyLabel.text = "Best buy \n\(String(format:"%.2f", (city?.bestBuyCost)!))"
-            bestSellLabel.text = "Best sell \n\(String(format:"%.2f", (city?.bestSellCost)!))"
+            if let month = city?.monthName {
+                monthAndCurrencyLabel.text = "\(month)  \(String(format:"%.2f", (city?.bestAvarage ?? 0.0)))"
+            }
+            bestBuyLabel.text = "\(Localizable.CityList.bestBuy.localized) \n\(String(format:"%.2f", (city?.bestBuyCost  ?? 0.0)))"
+            bestSellLabel.text = "\(Localizable.CityList.bestSell.localized) \n\(String(format:"%.2f", (city?.bestSellCost  ?? 0.0)))"
         }
     }
 }
